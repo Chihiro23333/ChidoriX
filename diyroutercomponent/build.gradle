@@ -21,6 +21,14 @@ android {
 
     }
 
+
+    compileOptions.with {
+        sourceCompatibility = JavaVersion.VERSION_1_7
+        targetCompatibility = JavaVersion.VERSION_1_7
+    }
+
+//    jackOptions { enabled true }
+
     buildTypes {
         release {
             minifyEnabled false

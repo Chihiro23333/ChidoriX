@@ -13,7 +13,7 @@ public class BindViewField {
     private VariableElement variableElement;
     private int resid;
 
-    public BindViewField(Element element, int resid) {
+    public BindViewField(Element element) {
         if (element.getKind() != ElementKind.FIELD) {
             throw new IllegalArgumentException("只能在field上使用这个bindview注解");
         }
