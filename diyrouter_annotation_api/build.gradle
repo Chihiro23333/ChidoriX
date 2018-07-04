@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion "26.0.2"
 
 
     defaultConfig {
@@ -27,6 +27,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
+    annotationProcessor project(':diyrouter_compiler')
     compile project(':diyrouter_compiler')
 
     testCompile 'junit:junit:4.12'

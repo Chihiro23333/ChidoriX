@@ -3,6 +3,7 @@ package com.bilibili.diyrouter_compiler;
 import com.bilibili.diyrouter_annotation.annotation.BindView;
 import com.bilibili.diyrouter_compiler.model.AnnotatedClass;
 import com.bilibili.diyrouter_compiler.model.BindViewField;
+import com.google.auto.service.AutoService;
 
 import java.lang.annotation.ElementType;
 import java.util.HashMap;
@@ -14,13 +15,19 @@ import java.util.logging.Logger;
 import javax.annotation.processing.AbstractProcessor;
 import javax.annotation.processing.Filer;
 import javax.annotation.processing.ProcessingEnvironment;
+import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
+import javax.annotation.processing.SupportedAnnotationTypes;
+import javax.annotation.processing.SupportedOptions;
+import javax.annotation.processing.SupportedSourceVersion;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.util.Elements;
-
+@AutoService(Processor.class)
+@SupportedSourceVersion(SourceVersion.RELEASE_7)
+@SupportedAnnotationTypes({"com.bilibili.diyrouter_annotation.annotation.BindView"})
 public class BindViewProcessor extends AbstractProcessor {
 
     private Elements elementUtils;
@@ -38,6 +45,8 @@ public class BindViewProcessor extends AbstractProcessor {
 
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
+
+        System.out.println("processaaaaaaaaaaaaaaaaaaaaaaa-----------------------------------------------------------");
 
         mAnnotataedClassMap.clear();
 

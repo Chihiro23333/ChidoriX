@@ -17,8 +17,8 @@ public class AnnotatedClass {
     private Elements mElements;
     private List<BindViewField> mFilds;
 
-    public static final ClassName FINDER = ClassName.get("com.example.dly.annotation_api.finder", "Finder");
-    public static final ClassName INJECTOR = ClassName.get("com.example.dly.annotation_api", "Injector");
+    public static final ClassName FINDER = ClassName.get("com.bilbili.diyrouter_annotation_api", "Finder");
+    public static final ClassName INJECTOR = ClassName.get("com.bilbili.diyrouter_annotation_api", "Injector");
 
     public AnnotatedClass(TypeElement mTypeElement, Elements mElements) {
         this.mTypeElement = mTypeElement;

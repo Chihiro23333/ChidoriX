@@ -2,7 +2,7 @@ apply plugin: 'com.dd.comgradle'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion "26.0.2"
 
 
     defaultConfig {
@@ -22,18 +22,12 @@ android {
     }
 
 
-    compileOptions.with {
-        sourceCompatibility = JavaVersion.VERSION_1_7
-        targetCompatibility = JavaVersion.VERSION_1_7
-    }
-
-//    jackOptions { enabled true }
-
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
     }
 
     resourcePrefix "diyrouter_"
@@ -43,8 +37,6 @@ android {
 dependencies {
     compile project(':componentservice')
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    annotationProcessor 'com.github.jimu:router-anno-compiler:1.0.1'
-//    annotationProcessor project(':router-anno-compiler')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
