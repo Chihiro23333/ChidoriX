@@ -1,4 +1,4 @@
-include ':app', ':diyroutercomponent', ':diyrouter_annotation', ':diyrouter_compiler', ':diyrouter_annotation_api',
+include ':app', ':diyroutercomponent', ':diyrouter_annotation', ':diyrouter_compiler', ':diyrouter_annotation_api', ':diyviewcomponent',
         ':diygradlecomponent',
         ':sharecomponentkotlin',
         ':componentlib',
