@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private View one;
     private View two;
+    private View three;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -22,8 +23,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         one = findViewById(R.id.one);
         two = findViewById(R.id.two);
+        three = findViewById(R.id.three);
         one.setOnClickListener(this);
         two.setOnClickListener(this);
+        three.setOnClickListener(this);
     }
 
     @Override
@@ -34,6 +37,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.two:
                 Jump(DiyViewTwoActivity.class);
+                break;
+            case R.id.three:
+                Jump(DiyViewThreeActivity.class);
                 break;
         }
     }
