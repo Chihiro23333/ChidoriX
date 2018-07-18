@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/item_collect"
+        android:title="收藏"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/item_setting"
+        android:title="哔哩哔哩动画"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/item_model"
+        android:title="第二个"
+        app:showAsAction="never" />
+</menu>
