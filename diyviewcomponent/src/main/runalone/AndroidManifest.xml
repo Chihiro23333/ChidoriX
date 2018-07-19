@@ -21,6 +21,7 @@
         <activity android:name=".ui.DiyViewOneActivity"/>
         <activity android:name=".ui.DiyViewTwoActivity"/>
         <activity android:name=".ui.DiyViewThreeActivity"/>
+        <activity android:name=".ui.DiyViewFourActivity"/>
     </application>
 
 </manifest>

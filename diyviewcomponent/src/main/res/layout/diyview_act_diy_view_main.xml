@@ -29,6 +29,13 @@
             android:gravity="center"
             android:text="Region区域"/>
 
+        <Button
+            android:id="@+id/four"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="CanvasOperation"/>
+
     </LinearLayout>
 
 </ScrollView>
