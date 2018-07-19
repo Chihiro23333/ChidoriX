@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 
 import com.bilibili.diyviewcomponent.R;
+import com.bilibili.diyviewcomponent.util.Utils;
 import com.luojilab.router.facade.annotation.RouteNode;
 
 @RouteNode(path = "/diyViewMain", desc = "自定义控件学习")
@@ -15,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private View one;
     private View two;
     private View three;
+    private View four;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -24,9 +27,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         one = findViewById(R.id.one);
         two = findViewById(R.id.two);
         three = findViewById(R.id.three);
+        four = findViewById(R.id.four);
         one.setOnClickListener(this);
         two.setOnClickListener(this);
         three.setOnClickListener(this);
+        four.setOnClickListener(this);
+
+        Log.i("eee", Utils.getStatusBarHeight(MainActivity.this) + "");
     }
 
     @Override
@@ -40,6 +47,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.three:
                 Jump(DiyViewThreeActivity.class);
+                break;
+            case R.id.four:
+                Jump(DiyViewFourActivity.class);
                 break;
         }
     }
