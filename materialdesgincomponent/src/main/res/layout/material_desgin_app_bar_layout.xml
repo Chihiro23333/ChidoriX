@@ -1,48 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!--<android.support.v7.widget.AppCompatTextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:text="hahahah"-->
+        <!--android:gravity="center"-->
+        <!--android:minHeight="50dp"-->
+        <!--app:layout_scrollFlags="scroll"/>-->
+
+        <!--<EditText-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+            <!--app:layout_scrollFlags="scroll"/>-->
+
+
+        <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--app:layout_scrollFlags="scroll"/>-->
+
+
+        <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content" />-->
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:titleEnabled="false"
+            app:contentScrim="#00ffffff"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:title="CollapsingToolbarLayout">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/darker_gray"
+                android:text="hahahah"
+                app:layout_collapseMode="parallax"
+                android:layout_marginTop="60dp"/>
+
+
+            <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@android:color/holo_blue_dark"
+                app:layout_collapseMode="pin"
+                app:contentInsetStart="0dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="班级"
+                    android:textSize="22sp"
+                    android:layout_gravity="center"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="添加"
+                    android:layout_gravity="right"/>
+
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
         <android.support.v7.widget.AppCompatTextView
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:text="hahahah"
-            android:gravity="center"
-            android:minHeight="50dp"
-            app:layout_scrollFlags="scroll"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <!--<android.support.design.widget.CollapsingToolbarLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="200dp"-->
-            <!--app:title="CollapsingToolbarLayout"-->
-            <!--app:contentScrim="@android:color/holo_red_dark"-->
-            <!--android:minHeight="50dp"-->
-            <!--app:layout_scrollFlags="scroll|exitUntilCollapsed">-->
-
-            <!--<android.support.v7.widget.Toolbar-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="60dp"-->
-                <!--app:layout_collapseMode="pin"-->
-                <!--android:background="@android:color/darker_gray" />-->
-
-            <!--<android.support.v7.widget.AppCompatTextView-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="60dp"-->
-            <!--android:text="hahahah"-->
-            <!--android:gravity="center"-->
-                <!--app:layout_collapseMode="pin"-->
-                <!--android:background="@android:color/darker_gray" />-->
-
-        <!--</android.support.design.widget.CollapsingToolbarLayout>-->
+            android:layout_height="40dp"
+            android:text="tab"
+            android:gravity="center"/>
 
     </android.support.design.widget.AppBarLayout>
 
@@ -54,8 +89,17 @@
         <android.support.v7.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/material_desgin_desc"/>
+            android:text="@string/material_desgin_desc" />
 
     </android.support.v4.widget.NestedScrollView>
+
+
+    <!--<android.support.v7.widget.AppCompatTextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="60dp"-->
+        <!--android:background="@android:color/holo_red_dark"-->
+        <!--android:text="header"-->
+        <!--app:layout_behavior="@string/material_desgin_behavior_sample_title"/>-->
+
 
 </android.support.design.widget.CoordinatorLayout>

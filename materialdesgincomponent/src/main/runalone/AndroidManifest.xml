@@ -19,5 +19,6 @@
         </activity>
         <activity android:name=".ui.ToolBarActivity"/>
         <activity android:name=".ui.AppBarLayoutActivity"/>
+        <activity android:name=".ui.AppbarLayoutViewPagerActivity"/>
     </application>
 </manifest>

@@ -10,7 +10,11 @@
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="match_parent" />-->
 
-    <com.bilibili.diyviewcomponent.view.BezierWaveView
+    <!--<com.bilibili.diyviewcomponent.view.BezierWaveView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
+
+    <com.bilibili.diyviewcomponent.view.PaintView
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

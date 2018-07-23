@@ -2,4 +2,5 @@
     <string name="material_desgin_app_name">materialdesgincomponent</string>
     <string name="material_desgin_desc">a\nb\na\nb\na\nb\na\nb\na\nb\na\nb\na\nb\na\nb\na\nb\na
         \nb\na\nb\na\nb\na\nb\na\nb\na\nb\na\nb\na\nb\na\nb\na\nb\na\nb\na\nb\na\nb\na\nb\na\nb\n</string>
+    <string name="material_desgin_behavior_sample_title">tv.bgm.materialdesgincomponent.behavior.TitleSampleBehavior</string>
 </resources>

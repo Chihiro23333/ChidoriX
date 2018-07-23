@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="hahahah"
+            android:gravity="center"
+            android:minHeight="50dp"
+            app:layout_scrollFlags="scroll"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll"/>
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll"/>
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <!--<android.support.design.widget.CollapsingToolbarLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="200dp"-->
+        <!--app:contentScrim="@android:color/holo_red_dark"-->
+        <!--app:layout_scrollFlags="scroll|exitUntilCollapsed"-->
+        <!--app:title="CollapsingToolbarLayout"-->
+        <!--android:layout_marginTop="30dp">-->
+
+        <!--<android.support.v7.widget.Toolbar-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="60dp"-->
+        <!--android:background="@android:color/darker_gray"-->
+        <!--app:layout_collapseMode="pin" />-->
+
+        <!--<android.support.v7.widget.AppCompatTextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="60dp"-->
+        <!--android:background="@android:color/darker_gray"-->
+        <!--android:gravity="center"-->
+        <!--android:text="hahahah" />-->
+
+        <!--</android.support.design.widget.CollapsingToolbarLayout>-->
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+</android.support.design.widget.CoordinatorLayout>
