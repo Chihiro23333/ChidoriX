@@ -22,6 +22,7 @@
         <activity android:name=".ui.DiyViewTwoActivity"/>
         <activity android:name=".ui.DiyViewThreeActivity"/>
         <activity android:name=".ui.DiyViewFourActivity"/>
+        <activity android:name=".ui.IRecyclerViewActivity"/>
     </application>
 
 </manifest>

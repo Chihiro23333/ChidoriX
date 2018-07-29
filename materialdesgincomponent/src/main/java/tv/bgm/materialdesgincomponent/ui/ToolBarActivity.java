@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import tv.bgm.materialdesgincomponent.R;
+import tv.bgm.materialdesgincomponent.dialog.StyleDialog;
 
 /**
  * Created by Chihiro on 2018/7/17.
@@ -24,5 +25,8 @@ public class ToolBarActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolBar);
 
         toolbar.inflateMenu(R.menu.material_desgin_toolbar);
+
+        StyleDialog styleDialog = new StyleDialog(ToolBarActivity.this);
+        styleDialog.show();
     }
 }

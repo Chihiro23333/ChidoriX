@@ -14,7 +14,15 @@
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="match_parent" />-->
 
-    <com.bilibili.diyviewcomponent.view.PaintView
+    <!--<com.bilibili.diyviewcomponent.view.PaintView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
+
+    <!--<com.bilibili.diyviewcomponent.view.ColorMatrixView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
+
+    <com.bilibili.diyviewcomponent.view.XferModeView
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
