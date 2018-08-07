@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.one:
-                Jump(ToolBarActivity.class);
+                Jump(EditTextKeyBoardActivity.class);
                 break;
             case R.id.two:
                 Jump(AppBarLayoutActivity.class);

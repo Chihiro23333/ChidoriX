@@ -30,11 +30,11 @@ public class XferModeView extends View {
     private Bitmap bitmap;
 
     public XferModeView(Context context) {
-        this(context ,null);
+        this(context, null);
     }
 
     public XferModeView(Context context, @Nullable AttributeSet attrs) {
-        this(context, attrs ,0);
+        this(context, attrs, 0);
     }
 
     public XferModeView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
@@ -63,11 +63,67 @@ public class XferModeView extends View {
 
         canvas.drawColor(Color.GRAY);
 
-        int layerId = canvas.saveLayer(0, 0, width * 2, height * 2, mPaint ,Canvas.ALL_SAVE_FLAG);
+        int layerId = canvas.saveLayer(0, 0, width * 2, height * 2, mPaint, Canvas.ALL_SAVE_FLAG);
 
-        canvas.drawBitmap(dstBitmap , 0 ,0 ,mPaint);
-        mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
-        canvas.drawBitmap(srcBitmap ,width/2 ,height/2 ,mPaint);
+        canvas.drawBitmap(dstBitmap, 0, 0, mPaint);
+//        mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+
+        //颜色叠加相关模式 Sa = Source Alpha    Sc = Source Color
+        //公式 Saturate(S + D)
+//        mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.ADD));
+
+        // [Sa + Da - Sa*Da,Sc*(1 - Da) + Dc*(1 - Sa) + max(Sc, Dc)]  变亮
+//        mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.LIGHTEN));
+
+        // [Sa + Da - Sa*Da,Sc*(1 - Da) + Dc*(1 - Sa) + max(Sc, Dc)]  变暗
+//        mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DARKEN));
+
+        //[Sa * Da, Sc * Dc] 正片叠加
+//        mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY));
+
+        //叠加
+//        mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.OVERLAY));
+
+        //[Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] 滤色
+//        mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SCREEN));
+
+        //SRC相关模式
+        //[Sa, Sc]
+//        mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC));
+
+        //[Sa * Da, Sc * Da]
+//        mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+
+        //[Sa * (1 - Da), Sc * (1 - Da)]
+//        mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT));
+
+        //[Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc]
+//        mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OVER));
+
+        //[Da, Sc * Da + (1 - Sa) * Dc]
+//        mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_ATOP));
+//        canvas.drawBitmap(srcBitmap, width / 2, height / 2, mPaint);
+
+        //计算公式为：[Da, Dc]
+//        mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST));
+
+        //计算公式为：[Da * Sa,Dc * Sa]
+//        mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+
+        //[Da * (1 - Sa), Dc * (1 - Sa)]
+//        mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+
+        //计算公式为：[Sa + (1 - Sa)*Da, Rc = Dc + (1 - Da)*Sc]
+//        mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OVER));
+
+        //计算公式为：[Sa, Sa * Dc + Sc * (1 - Da)]
+//        mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_ATOP));
+
+        //计算公式：[0, 0]
+//        mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+
+        //计算公式为：[Sa + Da - Sa*Da,Sc*(1 - Da) + Dc*(1 - Sa) + min(Sc, Dc)]
+//        mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.XOR));
         mPaint.setXfermode(null);
 
         canvas.restoreToCount(layerId);
@@ -75,12 +131,12 @@ public class XferModeView extends View {
     }
 
     private Bitmap drawSrc() {
-        Bitmap bitmap = Bitmap.createBitmap(width ,height ,Bitmap.Config.ARGB_8888);
+        Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
 
         Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
         paint.setColor(Color.BLUE);
         Canvas canvas = new Canvas(bitmap);
-        canvas.drawRect(new Rect(0,0,width,height) ,paint);
+        canvas.drawRect(new Rect(0, 0, width, height), paint);
 
         return bitmap;
     }
@@ -91,7 +147,7 @@ public class XferModeView extends View {
         Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
         paint.setColor(Color.RED);
         Canvas canvas = new Canvas(bitmap);
-        canvas.drawOval(new RectF(0 ,0 ,width ,height ) ,paint);
+        canvas.drawOval(new RectF(0, 0, width, height), paint);
 
         return bitmap;
     }
