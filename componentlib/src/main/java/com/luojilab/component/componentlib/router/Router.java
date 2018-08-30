@@ -55,11 +55,6 @@ public class Router {
         services.remove(serviceName);
     }
 
-    /**
-     * 注册组件
-     *
-     * @param classname 组件名
-     */
     public static void registerComponent(@Nullable String classname) {
         if (TextUtils.isEmpty(classname)) {
             return;
@@ -77,11 +72,6 @@ public class Router {
         }
     }
 
-    /**
-     * 反注册组件
-     *
-     * @param classname 组件名
-     */
     public static void unregisterComponent(@Nullable String classname) {
         if (TextUtils.isEmpty(classname)) {
             return;

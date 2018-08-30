@@ -13,10 +13,6 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * Created by mrzhang on 2017/8/28.
- * 负责解析URI的参数
- */
 
 public class UriUtils {
 
