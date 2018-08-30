@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/sv"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:background="@android:color/holo_blue_bright"
+        android:layout_gravity="bottom"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/ll_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="#FF33B5E5"
+                android:gravity="center"
+                android:text="Content1"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="#FF33B5E5"
+                android:gravity="center"
+                android:text="Content2"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:gravity="start"
+                android:lines="3"
+                android:text="EditText" />
+
+            <Button
+                android:id="@+id/bt"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#00f"
+                android:text="botton" />
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

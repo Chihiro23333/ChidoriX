@@ -1,0 +1,22 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.bilibili.itemdecorationcomponent">
+
+    <application
+        android:name="com.bilibili.itemdecorationcomponent.ItemDecorationApplication"
+        android:allowBackup="true"
+        android:label="@string/itemdecoration_app_name"
+        android:supportsRtl="true"
+        android:theme="@style/commonAppTheme"
+        tools:replace="android:label">
+
+        <activity android:name=".activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

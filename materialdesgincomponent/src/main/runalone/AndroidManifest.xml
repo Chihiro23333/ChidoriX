@@ -20,5 +20,7 @@
         <activity android:name=".ui.ToolBarActivity"/>
         <activity android:name=".ui.AppBarLayoutActivity"/>
         <activity android:name=".ui.AppbarLayoutViewPagerActivity"/>
+        <activity android:name=".ui.KeyBoardAboveViewActivity"
+            android:windowSoftInputMode="adjustResize"/>
     </application>
 </manifest>
