@@ -22,7 +22,5 @@
         <activity android:name=".ui.AppbarLayoutViewPagerActivity"/>
         <activity android:name=".ui.KeyBoardAboveViewActivity"
             android:windowSoftInputMode="adjustResize"/>
-        <activity android:name=".ui.EditTextKeyBoardActivity"
-            android:windowSoftInputMode="adjustResize"/>
     </application>
 </manifest>
