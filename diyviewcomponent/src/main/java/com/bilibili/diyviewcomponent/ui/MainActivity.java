@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Jump(DiyViewThreeActivity.class);
                 break;
             case R.id.four:
-                Jump(DiyViewFourActivity.class);
+                Jump(DiloagActivity.class);
                 break;
         }
     }
