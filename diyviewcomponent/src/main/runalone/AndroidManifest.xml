@@ -23,6 +23,7 @@
         <activity android:name=".ui.DiyViewThreeActivity"/>
         <activity android:name=".ui.DiyViewFourActivity"/>
         <activity android:name=".ui.IRecyclerViewActivity"/>
+        <activity android:name=".ui.DiloagActivity"/>
     </application>
 
 </manifest>
