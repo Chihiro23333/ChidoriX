@@ -23,7 +23,8 @@
         <activity android:name=".ui.DiyViewThreeActivity"/>
         <activity android:name=".ui.DiyViewFourActivity"/>
         <activity android:name=".ui.IRecyclerViewActivity"/>
-        <activity android:name=".ui.DiloagActivity"/>
+        <activity android:name=".ui.DiloagActivity"
+            android:theme="@style/Theme.AppCompat.Dialog"/>
     </application>
 
 </manifest>
