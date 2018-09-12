@@ -22,7 +22,7 @@ android {
         }
     }
 
-    resourcePrefix "material_desgin_"
+//    resourcePrefix "material_desgin_"
 
 }
 
