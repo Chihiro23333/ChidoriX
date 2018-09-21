@@ -25,6 +25,7 @@
         <activity android:name=".ui.IRecyclerViewActivity"/>
         <activity android:name=".ui.DiloagActivity"
             android:theme="@style/Theme.AppCompat.Dialog"/>
+        <activity android:name=".ui.ShapeActivity"/>
     </application>
 
 </manifest>
