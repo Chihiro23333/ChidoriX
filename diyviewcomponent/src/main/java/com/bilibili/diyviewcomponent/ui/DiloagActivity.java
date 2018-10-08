@@ -14,6 +14,7 @@ import android.widget.Button;
 
 import com.bilibili.diyviewcomponent.R;
 import com.bilibili.diyviewcomponent.dialog.FullScreenDialog;
+import com.bilibili.diyviewcomponent.dialog.FullScreenDialogFragment;
 
 public class DiloagActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -27,8 +28,8 @@ public class DiloagActivity extends AppCompatActivity implements View.OnClickLis
 
         setContentView(R.layout.diyview_act_dialog);
 
-        getWindow().setBackgroundDrawable(new ColorDrawable(Color.BLUE));
-        getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
+//        getWindow().setBackgroundDrawable(new ColorDrawable(Color.BLUE));
+//        getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {//5.0 全透明实现
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
@@ -60,7 +61,10 @@ public class DiloagActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void showFullScreenDialog() {
-        FullScreenDialog fullScreenDialog = new FullScreenDialog();
-        fullScreenDialog.show(getSupportFragmentManager() ,"FullScreenDialog");
+        FullScreenDialog fullScreenDialog = new FullScreenDialog(DiloagActivity.this);
+        fullScreenDialog.show();
+
+//        FullScreenDialogFragment fullScreenDialogFragment =new FullScreenDialogFragment();
+//        fullScreenDialogFragment.show(getSupportFragmentManager() ,"FullScreenDialogFragment");
     }
 }
