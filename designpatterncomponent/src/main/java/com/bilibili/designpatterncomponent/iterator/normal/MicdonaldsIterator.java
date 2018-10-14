@@ -1,4 +1,4 @@
-package com.bilibili.designpatterncomponent.iterator;
+package com.bilibili.designpatterncomponent.iterator.normal;
 
 import java.util.List;
 

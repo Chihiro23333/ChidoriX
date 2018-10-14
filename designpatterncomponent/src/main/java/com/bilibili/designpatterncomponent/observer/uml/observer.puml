@@ -1,0 +1,29 @@
+@startuml
+
+interface Subject
+interface Observer
+class Weather
+class WeatherBoard
+class OtherBoard
+
+Subject : +registeObserver(Observer o)
+Subject : +removeObserver(Observer o)
+Subject : +notifyObservers()
+
+Weather : -String temperature
+Weather : -List<Observer> observers
+Weather : +registeObserver(Observer o)
+Weather : +removeObserver(Observer o)
+Weather : +notifyObservers()
+
+Observer : +update(String temperature)
+
+WeatherBoard : +update(String temperature)
+OtherBoard : +update(String temperature)
+
+Subject <|-Weather
+Observer <|--WeatherBoard
+Observer <|--OtherBoard
+Subject "1" o-- "many"Observer
+
+@enduml

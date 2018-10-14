@@ -1,4 +1,4 @@
-package com.bilibili.designpatterncomponent.iterator;
+package com.bilibili.designpatterncomponent.iterator.normal;
 
 /**
  * 提供一个方法顺序访问一个聚合对象中的各个元素,而又不暴露其内部的表示
