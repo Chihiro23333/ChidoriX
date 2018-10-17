@@ -1,0 +1,44 @@
+@startuml
+
+abstract class Airplane {
+    -AirplaneProducer airplaneProducer
+    #fly()
+}
+note left of Airplane
+ "飞机的超类型
+ 持有一个AirplaneProducer的引用"
+ end note
+
+interface AirplaneProducer{
+    #Airplane produce()
+}
+
+note right of AirplaneProducer
+"飞机厂商的超类
+,不同厂商有个生产方法，生产飞机"
+end note
+
+class CargoAirplane {
+    #fly()
+}
+class PassengerAirplane{
+    #fly()
+}
+
+class CocaColaProducer{
+    #Airplane produce()
+}
+class WaHaHaProducer{
+    #Airplane produce()
+}
+
+Airplane <|-- PassengerAirplane
+Airplane <|-- CargoAirplane
+
+AirplaneProducer <|-- WaHaHaProducer
+AirplaneProducer <|-- CocaColaProducer
+
+Airplane o- AirplaneProducer
+
+
+@enduml

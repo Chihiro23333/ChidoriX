@@ -1,4 +1,4 @@
-package com.bilibili.designpatterncomponent.iterator;
+package com.bilibili.designpatterncomponent.iterator.normal;
 
 public class KFC implements Resterant{
     private MenuItem[] menuItems;
