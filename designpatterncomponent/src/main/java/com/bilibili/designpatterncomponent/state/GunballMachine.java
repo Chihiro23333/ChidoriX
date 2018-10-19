@@ -38,8 +38,9 @@ public class GunballMachine {
 
 
     public void releaseBall() {
+        System.out.println("糖果数:"+count);
         if (count > 0) {
-            count -= count - 1;
+            count -= 1;
         }
     }
 

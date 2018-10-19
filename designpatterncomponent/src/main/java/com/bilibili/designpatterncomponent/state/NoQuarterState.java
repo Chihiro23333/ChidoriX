@@ -10,8 +10,12 @@ public class NoQuarterState implements State {
 
     @Override
     public void insertQuarter() {
-        System.out.println("insertQuarter");
-        gunballMachine.setCurState(gunballMachine.getHasQuarterState());
+        if (gunballMachine.getCount() > 0) {
+            System.out.println("insertQuarter");
+            gunballMachine.setCurState(gunballMachine.getHasQuarterState());
+        } else {
+            gunballMachine.setCurState(gunballMachine.getSoldOutState());
+        }
     }
 
     @Override

@@ -24,8 +24,15 @@ buildscript {
 
 allprojects {
     repositories {
+
         mavenCentral()
-        maven { url 'https://jitpack.io' }
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        maven { url "http://maven.aliyun.com/nexus/content/repositories/releases" }
+        maven { url 'http://repo.baichuan-android.taobao.com/content/groups/BaichuanRepositories/' }
+        maven { url "https://maven.google.com" }
+        jcenter()
+        maven { url "https://jitpack.io" }
         maven {
             url 'https://dl.bintray.com/leobert-lan-oss/maven/'
         }
@@ -33,6 +40,5 @@ allprojects {
             url 'https://maven.google.com/'
             name 'Google'
         }
-        jcenter()
     }
 }
