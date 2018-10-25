@@ -1,0 +1,55 @@
+@startuml
+
+class RemoteControl
+
+interface ICommand
+
+class Light
+class Aircondition
+
+class LightOnCommand
+class LightOffCommand
+
+class AirConditionOnCommand
+class AirConditionOffCommand
+
+RemoteControl : + ICommand[] commands;
+RemoteControl : - setCommand(int index);
+RemoteControl : - press(int index);
+
+ICommand : - execute();
+
+NoCommand : - execute();
+
+LightOnCommand : - execute();
+LightOnCommand : + Light light;
+
+LightOffCommand : - execute();
+LightOffCommand : + Light light;
+
+AirConditionOnCommand : - execute();
+AirConditionOnCommand : + Aircondition aircondition;
+
+AirConditionOffCommand : - execute();
+AirConditionOffCommand : + Aircondition aircondition;
+
+Light : - on();
+Light : - off();
+
+Aircondition : - on();
+Aircondition : - off();
+
+LightOnCommand --* Light :contains
+LightOffCommand --* Light :contains
+
+AirConditionOnCommand *-- Aircondition :contains
+AirConditionOffCommand *-- Aircondition :contains
+
+ICommand <|-- LightOnCommand
+ICommand <|-- LightOffCommand
+ICommand <|-- AirConditionOnCommand
+ICommand <|-- AirConditionOffCommand
+ICommand <|-- NoCommand
+
+RemoteControl --* ICommand
+@enduml

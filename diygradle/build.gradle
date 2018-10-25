@@ -13,18 +13,17 @@ repositories {
 }
 
 //group和version在后面使用自定义插件的时候会用到
-group='tv.bgm.firstplugin'
+group='tv.bgm.plugin'
 version='1.0.0'
-
 
 uploadArchives {
     repositories {
         mavenDeployer {
-            //提交到远程服务器：
-            // repository(url: "http://****/repos") {
-            //    authentication(userName: "***", password: "***")
-            // }
-            //本地的Maven地址设置为D:/repos
+//            提交到远程服务器：
+//             repository(url: "http://****/repos") {
+//                authentication(userName: "***", password: "***")
+//             }
+//            本地的Maven地址设置为D:/repos
             repository(url: uri('../repo'))
         }
     }
