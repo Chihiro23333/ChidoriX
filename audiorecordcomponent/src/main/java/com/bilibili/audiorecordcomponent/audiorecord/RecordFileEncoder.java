@@ -11,13 +11,11 @@ public class RecordFileEncoder {
 
     private static final String TAG = "RecordFileEncoder";
 
-    private File file;
     private AacEncode aacEncode;
     private OutputStream outputStream;
 
     public RecordFileEncoder(File file) {
 
-        this.file = file;
         aacEncode = new AacEncode();
         aacEncode.prepare();
 
@@ -28,7 +26,7 @@ public class RecordFileEncoder {
         }
     }
 
-    public void encodeAndSave(byte[] b) {
+    public  void encodeAndSave(byte[] b) {
         try {
             Log.i(TAG, "encodeAndSave:" + b.length);
             byte[] bytes = aacEncode.offerEncoder(b);

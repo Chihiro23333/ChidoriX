@@ -1,0 +1,32 @@
+@startuml
+
+class Originator
+interface MementoIF
+class Caretaker
+class Memento
+
+
+Originator : +String state
+Originator : -MementoIF createMemento()
+Originator : -restoreToMemento(MementoIF mementoIF)
+
+Memento : +String state
+Memento : -setState()
+Memento : -String getState()
+
+Caretaker : +List<MementoIF> mementoIFList
+Caretaker : -addMementoIF(MementoIF mementoIF)
+Caretaker : -removeMementoIF(int index)
+Caretaker : -MementoIF getMementoIF(int index)
+
+MementoIF <|.. Memento
+Originator -> Memento
+MementoIF -> Caretaker
+
+note right of Memento
+黑盒模式下
+Memento是一个Originator的私有内部类
+MementoIF是一个空接口
+外部无法访问Memento的属性
+end note
+@enduml

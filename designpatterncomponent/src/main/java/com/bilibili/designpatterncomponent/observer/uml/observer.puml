@@ -22,8 +22,8 @@ WeatherBoard : +update(String temperature)
 OtherBoard : +update(String temperature)
 
 Subject <|-Weather
-Observer <|--WeatherBoard
-Observer <|--OtherBoard
+Observer <|..WeatherBoard
+Observer <|..OtherBoard
 Subject "1" o-- "many"Observer
 
 @enduml

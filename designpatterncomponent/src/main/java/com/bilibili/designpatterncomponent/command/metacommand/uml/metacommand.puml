@@ -42,14 +42,14 @@ Aircondition : - off();
 LightOnCommand --* Light :contains
 LightOffCommand --* Light :contains
 
-AirConditionOnCommand *-- Aircondition :contains
-AirConditionOffCommand *-- Aircondition :contains
+AirConditionOnCommand --* Aircondition :contains
+AirConditionOffCommand --* Aircondition :contains
 
-ICommand <|-- LightOnCommand
-ICommand <|-- LightOffCommand
-ICommand <|-- AirConditionOnCommand
-ICommand <|-- AirConditionOffCommand
-ICommand <|-- NoCommand
+ICommand <|.. LightOnCommand
+ICommand <|.. LightOffCommand
+ICommand <|.. AirConditionOnCommand
+ICommand <|.. AirConditionOffCommand
+ICommand <|.. NoCommand
 
 RemoteControl --* ICommand
 @enduml

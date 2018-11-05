@@ -15,4 +15,16 @@
         android:layout_height="wrap_content"
         android:text="stop"/>
 
+    <Button
+        android:id="@+id/bt_get_bytes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="getBytes"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"/>
+
 </LinearLayout>

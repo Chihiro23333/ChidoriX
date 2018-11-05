@@ -4,6 +4,7 @@ import android.media.AudioRecord;
 import android.media.MediaRecorder;
 import android.util.Log;
 
+import java.nio.ByteBuffer;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Recorder {
@@ -19,16 +20,26 @@ public class Recorder {
     public Recorder(RecordFileEncoder recordFileEncoder) {
         this.recordFileEncoder = recordFileEncoder;
         recording = new AtomicBoolean(false);
-        mRecordBuffer = new byte[Config.frameSize * 2];
+        mRecordBuffer = new byte[2048];
     }
 
     private void doCapture() {
         audioRecord.startRecording();
-        while (recording.get()) {
+        boolean hasReadAll = false;
+        int allLength = 0;
+        int writeLength = 0;
+        while (audioRecord.getRecordingState() == AudioRecord.RECORDSTATE_RECORDING || !hasReadAll) {
             int length = audioRecord.read(mRecordBuffer, 0, mRecordBuffer.length);
-            Log.i(TAG, mRecordBuffer.length + "");
+            hasReadAll = length == 0;
+            Log.i(TAG, length + "");
+            writeLength += length;
+            long pre = System.currentTimeMillis();
             recordFileEncoder.encodeAndSave(mRecordBuffer);
+            Log.i(TAG, (System.currentTimeMillis() - pre) + "");
+            allLength += length;
         }
+
+        Log.i(TAG, "allLength:" + allLength + "writeLength:" + writeLength);
     }
 
     public void start() {
@@ -56,6 +67,7 @@ public class Recorder {
         if (bufferSize < minBufferSize) {
             bufferSize = ((minBufferSize / Config.frameSize) + 1) * Config.frameSize * 2;
         }
+
         audioRecord = new AudioRecord(
                 MediaRecorder.AudioSource.MIC,       // source
                 Config.sampleRate,                   // sample rate, hz

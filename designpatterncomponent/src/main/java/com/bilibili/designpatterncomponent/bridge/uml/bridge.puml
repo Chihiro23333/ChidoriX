@@ -32,11 +32,11 @@ class WaHaHaProducer{
     #Airplane produce()
 }
 
-Airplane <|-- PassengerAirplane
-Airplane <|-- CargoAirplane
+Airplane <|.. PassengerAirplane
+Airplane <|.. CargoAirplane
 
-AirplaneProducer <|-- WaHaHaProducer
-AirplaneProducer <|-- CocaColaProducer
+AirplaneProducer <|.. WaHaHaProducer
+AirplaneProducer <|.. CocaColaProducer
 
 Airplane o- AirplaneProducer
 

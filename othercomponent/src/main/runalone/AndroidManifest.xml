@@ -1,0 +1,25 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.bilibili.othercomponent">
+
+    <application
+        android:name="com.bilibili.othercomponent.OtherComponentApplication"
+        android:allowBackup="true"
+        android:label="othercomponent"
+        android:supportsRtl="true"
+        android:theme="@style/commonAppTheme"
+        tools:replace="android:label">
+
+        <activity android:name=".ui.activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.notification.NotificationActivity"/>
+        <activity android:name=".ui.notification.ResultActivity"/>
+
+    </application>
+</manifest>

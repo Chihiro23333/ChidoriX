@@ -1,9 +1,11 @@
 package com.bilibili.audiorecordcomponent.audiorecord;
 
+import android.media.AudioRecord;
 import android.media.MediaCodec;
 import android.media.MediaCodecInfo;
 import android.media.MediaCodecList;
 import android.media.MediaFormat;
+import android.util.Log;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -68,7 +70,7 @@ public class AacEncode {
         mediaFormat.setInteger(MediaFormat.KEY_BIT_RATE, bitRate);
 
         //传入的数据大小
-        mediaFormat.setInteger(MediaFormat.KEY_MAX_INPUT_SIZE, 1024 * 1024);// It will
+        mediaFormat.setInteger(MediaFormat.KEY_MAX_INPUT_SIZE, 1024*1024);// It will
         //设置相关参数
         mediaCodec.configure(mediaFormat, null, null,
                 MediaCodec.CONFIGURE_FLAG_ENCODE);
@@ -92,9 +94,12 @@ public class AacEncode {
         }
     }
 
-    public byte[] offerEncoder(byte[] input) throws Exception {
+    public  byte[] offerEncoder(byte[] input) throws Exception {
         int inputBufferIndex = mediaCodec.dequeueInputBuffer(-1);
         if (inputBufferIndex >= 0) {
+
+            Log.i("encodeAndSave", "1" + "input[0]:" + input[0] + "inputBufferIndex:" + inputBufferIndex);
+
             ByteBuffer inputBuffer = inputBuffers[inputBufferIndex];
             inputBuffer.clear();
             inputBuffer.put(input);
@@ -110,7 +115,12 @@ public class AacEncode {
 
         int outputBufferIndex = mediaCodec.dequeueOutputBuffer(bufferInfo, 0);
 
+        Log.i("encodeAndSave", "outputBufferIndex:" + outputBufferIndex);
+
         while (outputBufferIndex >= 0) {
+
+            Log.i("encodeAndSave", "2" + "bufferInfo.size:" + bufferInfo.size+"flag="+bufferInfo.flags);
+
             int outBitsSize = bufferInfo.size;
             int outPacketSize = outBitsSize + 7; // 7 is ADTS size
             ByteBuffer outputBuffer = outputBuffers[outputBufferIndex];
@@ -120,18 +130,26 @@ public class AacEncode {
 
             //添加ADTS头
             if (adts) {
+
+                Log.i("encodeAndSave", "3");
+
                 byte[] outData = new byte[outPacketSize];
                 addADTStoPacket(outData, outPacketSize);
                 outputBuffer.get(outData, 7, outBitsSize);
                 outputBuffer.position(bufferInfo.offset);
                 outputStream.write(outData);
             } else {
+
+                Log.i("encodeAndSave", "4");
+
                 byte[] outData = new byte[outBitsSize];
                 outputBuffer.get(outData, 0, outBitsSize);
                 outputBuffer.position(bufferInfo.offset);
                 outputStream.write(outData);
             }
 
+
+            Log.i("encodeAndSave", "5");
             mediaCodec.releaseOutputBuffer(outputBufferIndex, false);
             outputBufferIndex = mediaCodec.dequeueOutputBuffer(bufferInfo, 0);
         }
@@ -139,6 +157,7 @@ public class AacEncode {
         //输出流的数据转成byte[]
         byte[] out = outputStream.toByteArray();
 
+        Log.i("encodeAndSave", "6");
         //写完以后重置输出流，否则数据会重复
         outputStream.flush();
         outputStream.reset();
