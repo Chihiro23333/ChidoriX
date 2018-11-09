@@ -175,7 +175,7 @@ public class AacEncode {
     private void addADTStoPacket(byte[] packet, int packetLen) {
         int profile = 2;  //AAC LC 2    //ELD 39, LD 22
         int freqIdx = 4;   //44.1KHz
-        int chanCfg = 2;   //CPE
+        int chanCfg = 1;   //CPE
         packet[0] = (byte) 0xFF;
         packet[1] = (byte) 0xF9;
         packet[2] = (byte) (((profile - 1) << 6) + (freqIdx << 2) + (chanCfg >> 2));

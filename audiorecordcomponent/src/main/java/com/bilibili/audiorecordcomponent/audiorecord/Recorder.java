@@ -34,7 +34,7 @@ public class Recorder {
             Log.i(TAG, length + "");
             writeLength += length;
             long pre = System.currentTimeMillis();
-            recordFileEncoder.encodeAndSave(mRecordBuffer);
+            recordFileEncoder.save(mRecordBuffer);
             Log.i(TAG, (System.currentTimeMillis() - pre) + "");
             allLength += length;
         }

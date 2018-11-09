@@ -3,6 +3,7 @@
     <!--通用颜色-->
     <color name="common_color_white">#ffffffff</color>
     <color name="common_color_black">#ff000000</color>
+    <color name="common_alpha_25_black">#40000000</color>
 
     <color name="common_colorPrimary">#3F51B5</color>
     <color name="common_colorPrimaryDark">#303F9F</color>

@@ -6,6 +6,6 @@ public abstract class View {
     }
 
     protected boolean dispatchTouchEvent() {
-        return false;
+        return onTouchEvent();
     }
 }

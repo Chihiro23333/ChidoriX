@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     private String[] permissions = new String[]{Manifest.permission.RECORD_AUDIO};
     private Recorder recorder;
+    private RecordFileEncoder recordFileEncoder;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,6 +56,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 recorder.stop();
+                File file = new File(getExternalCacheDir() + "/audio");
+                File fileAAC = new File(getExternalCacheDir() + "/audioAAC.aac");
+                if (!fileAAC.exists()) {
+                    try {
+                        file.createNewFile();
+                        recordFileEncoder.encodeToAAC(file, fileAAC);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         });
         bt_get_bytes.setOnClickListener(new View.OnClickListener() {
@@ -86,13 +97,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == 100) {
-            File file = new File(getExternalCacheDir() + "/audio.aac");
+            File file = new File(getExternalCacheDir() + "/audio");
             Log.i(TAG, file.getPath());
             if (!file.exists()) {
                 try {
                     file.createNewFile();
 
-                    RecordFileEncoder recordFileEncoder = new RecordFileEncoder(file);
+                    recordFileEncoder = new RecordFileEncoder(file);
                     recorder = new Recorder(recordFileEncoder);
                     recorder.prepare();
                     recorder.start();
