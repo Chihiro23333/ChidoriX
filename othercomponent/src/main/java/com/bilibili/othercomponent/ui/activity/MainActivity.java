@@ -8,11 +8,15 @@ import android.view.View;
 import android.widget.Button;
 
 import com.bilibili.othercomponent.R;
+import com.bilibili.othercomponent.ui.layoutmanager.CustomLayoutManagerActivity;
 import com.bilibili.othercomponent.ui.notification.NotificationActivity;
+import com.bilibili.othercomponent.ui.snaphelper.SnapHelperActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button bt_notifacation;
+    private Button bt_layoutmanager;
+    private Button bt_snaphelper;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -20,10 +24,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.other_main);
 
         bt_notifacation = findViewById(R.id.bt_notifacation);
+        bt_layoutmanager = findViewById(R.id.bt_layoutmanager);
+        bt_snaphelper = findViewById(R.id.bt_snaphelper);
         bt_notifacation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 jump(NotificationActivity.class);
+            }
+        });
+        bt_layoutmanager.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jump(CustomLayoutManagerActivity.class);
+            }
+        });
+        bt_snaphelper.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jump(SnapHelperActivity.class);
             }
         });
 

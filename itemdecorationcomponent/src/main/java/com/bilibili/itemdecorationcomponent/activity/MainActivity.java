@@ -4,7 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 
 import com.bilibili.itemdecorationcomponent.R;
 import com.bilibili.itemdecorationcomponent.adapter.SampleAdapter;
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             datas.add("item" + i);
         }
 
-        rv.setLayoutManager(new GridLayoutManager(MainActivity.this,5));
+        rv.setLayoutManager(new StaggeredGridLayoutManager(2 , OrientationHelper.VERTICAL));
         rv.setAdapter(new SampleAdapter(datas, MainActivity.this));
         rv.addItemDecoration(new SampleItemDecoration());
     }

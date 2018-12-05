@@ -5,13 +5,26 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/bt_notifacation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="notifacation" />
+
+        <Button
+            android:id="@+id/bt_layoutmanager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="layoutmanager" />
+
+        <Button
+            android:id="@+id/bt_snaphelper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="snaphelper" />
 
     </LinearLayout>
 </ScrollView>

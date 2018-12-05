@@ -20,6 +20,8 @@
 
         <activity android:name=".ui.notification.NotificationActivity"/>
         <activity android:name=".ui.notification.ResultActivity"/>
+        <activity android:name=".ui.layoutmanager.CustomLayoutManagerActivity"/>
+        <activity android:name=".ui.snaphelper.SnapHelperActivity"/>
 
     </application>
 </manifest>
