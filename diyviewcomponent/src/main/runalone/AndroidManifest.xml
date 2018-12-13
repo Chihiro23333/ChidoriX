@@ -26,6 +26,7 @@
         <activity android:name=".ui.DiloagActivity"
             android:theme="@style/Theme.AppCompat.Dialog"/>
         <activity android:name=".ui.ShapeActivity"/>
+        <activity android:name=".ui.MultiTouchActivity"/>
     </application>
 
 </manifest>

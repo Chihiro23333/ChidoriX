@@ -45,6 +45,6 @@ dependencies {
 }
 
 combuild {
-    applicationName = 'com.bilibili.diyroutercomponent.runalone.application.DiyRouterApplication'
+    applicationName = 'com.bilibili.diyviewcomponent.DiyViewApplication'
     isRegisterCompoAuto = false
 }

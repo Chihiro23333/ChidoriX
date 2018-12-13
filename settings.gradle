@@ -1,4 +1,6 @@
-include ':leetcodecomponent'
+include ':diyviewcomponent',
+//':leetcodecomponent',
+//        ':mediacomponent',
 //':itemdecorationcomponent',
 //        ':audiorecordcomponent',
 //        ':app',
@@ -7,7 +9,7 @@ include ':leetcodecomponent'
 //        ':diyrouter_annotation',
 //        ':diyrouter_compiler',
 //        ':diyrouter_annotation_api',
-//        ':diyviewcomponent',
+
 //        ':materialdesgincomponent',
 //        ':animationcomponent',
 //        ':diygradle',
@@ -16,10 +18,10 @@ include ':leetcodecomponent'
 //        ':sharecomponentkotlin',
 //        ':readercomponent',
 //        ':sharecomponent',
-//        ':componentservice',
-//        ':build-gradle',
-//        ':componentlib',
-//        ':basiclib',
-//        ':basicres',
-//        ':router-annotation',
-//        ':router-anno-compiler'
+        ':componentservice',
+        ':build-gradle',
+        ':componentlib',
+        ':basiclib',
+        ':basicres',
+        ':router-annotation',
+        ':router-anno-compiler'

@@ -61,8 +61,8 @@ public class DiloagActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void showFullScreenDialog() {
-        FullScreenDialog fullScreenDialog = new FullScreenDialog(DiloagActivity.this);
-        fullScreenDialog.show();
+//        FullScreenDialog fullScreenDialog = new FullScreenDialog(DiloagActivity.this);
+//        fullScreenDialog.show();
 
 //        FullScreenDialogFragment fullScreenDialogFragment =new FullScreenDialogFragment();
 //        fullScreenDialogFragment.show(getSupportFragmentManager() ,"FullScreenDialogFragment");

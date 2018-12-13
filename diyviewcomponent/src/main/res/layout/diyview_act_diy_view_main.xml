@@ -36,6 +36,13 @@
             android:gravity="center"
             android:text="CanvasOperation"/>
 
+        <Button
+            android:id="@+id/five"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="MultiTouchView"/>
+
     </LinearLayout>
 
 </ScrollView>

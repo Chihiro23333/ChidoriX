@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private View two;
     private View three;
     private View four;
+    private View five;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,10 +29,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         two = findViewById(R.id.two);
         three = findViewById(R.id.three);
         four = findViewById(R.id.four);
+        five =findViewById(R.id.five);
         one.setOnClickListener(this);
         two.setOnClickListener(this);
         three.setOnClickListener(this);
         four.setOnClickListener(this);
+        five.setOnClickListener(this);
 
         Log.i("eee", Utils.getStatusBarHeight(MainActivity.this) + "");
     }
@@ -50,6 +53,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.four:
                 Jump(ShapeActivity.class);
+                break;
+            case R.id.five:
+                Jump(MultiTouchActivity.class);
                 break;
         }
     }
