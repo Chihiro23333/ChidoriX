@@ -30,6 +30,7 @@ class ConvertUtils {
 
             it.jarInputs.each {
                 classPool.insertClassPath(it.file.absolutePath)
+                System.out.println("==========" + it.file.absolutePath)
                 def jarFile = new JarFile(it.file)
                 Enumeration<JarEntry> classes = jarFile.entries()
                 while (classes.hasMoreElements()) {
@@ -37,6 +38,7 @@ class ConvertUtils {
                     String className = libClass.getName()
                     if (className.endsWith(SdkConstants.DOT_CLASS)) {
                         className = className.substring(0, className.length() - SdkConstants.DOT_CLASS.length()).replaceAll('/', '.')
+                        System.out.println("##########" + className)
                         if (classNames.contains(className)) {
                             throw new RuntimeException("You have duplicate classes with the same name : " + className + " please remove duplicate classes ")
                         }

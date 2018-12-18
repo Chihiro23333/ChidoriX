@@ -17,7 +17,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 
-import wkb.core2.export.Wkb;
 
 public class RoundSpotLightView extends BaseSpotLightView implements ILightLocation {
 

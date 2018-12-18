@@ -5,7 +5,6 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
-import wkb.core2.export.Wkb;
 
 public abstract class BaseSpotLightView extends View {
 
@@ -22,16 +21,6 @@ public abstract class BaseSpotLightView extends View {
 
     public BaseSpotLightView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-    }
-
-    public void updatePPTSpotLightShowArea() {
-        int canvasContainerHeight = Wkb.getCanvasContainerHeight();
-        int canvasContainerWidth = Wkb.getCanvasContainerWidth();
-        int screenHeight = Wkb.getScreenHeight();
-        int screenWidth = Wkb.getScreenWidth();
-        int hGap = screenHeight - canvasContainerHeight;
-        int wGap = screenWidth - canvasContainerWidth;
-        setMoveMargin(new int[]{wGap / 2, hGap / 2, wGap / 2, hGap / 2});
     }
 
     public void setMoveMargin(int[] moveMargin) {

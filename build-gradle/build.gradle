@@ -1,17 +1,18 @@
 apply plugin: 'groovy'
+apply plugin: 'maven'
 
-ext {
-    bintrayName = 'build-gradle'
-    artifact = bintrayName
-    libraryName = 'component build'
-    libraryDescription = 'gradle plugin for buid component'
-    libraryVersion = "1.2.0"
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
-}
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
+//ext {
+//    bintrayName = 'build-gradle'
+//    artifact = bintrayName
+//    libraryName = 'component build'
+//    libraryDescription = 'gradle plugin for buid component'
+//    libraryVersion = "1.2.0"
+//    licenseName = 'The Apache Software License, Version 2.0'
+//    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+//    allLicenses = ["Apache-2.0"]
+//}
+//apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+//apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
 
 dependencies {
     compile 'com.android.tools.build:gradle:2.3.2'
@@ -22,5 +23,26 @@ dependencies {
     compile localGroovy()
     testCompile group: 'junit', name: 'junit', version: '4.12'
 
+}
+
+
+repositories {
+    mavenCentral()
+}
+//group和version在后面使用自定义插件的时候会用到
+group='com.dd.buildgradle'
+version='1.0.0'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+//            提交到远程服务器：
+//             repository(url: "http://****/repos") {
+//                authentication(userName: "***", password: "***")
+//             }
+//            本地的Maven地址设置为D:/repos
+            repository(url: uri('../repo'))
+        }
+    }
 }
 

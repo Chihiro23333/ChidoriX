@@ -56,11 +56,4 @@ public class SpotLight extends ViewGroup {
         spotLightView.layout(l, t, r, b);
         menu.layout(lightLeft, lightBottom, lightLeft + menu.getMeasuredWidth(), lightBottom + menu.getMeasuredHeight());
     }
-
-    public void updatePPTSpotLightShowArea() {
-        BaseSpotLightView spotLightView = (BaseSpotLightView) getChildAt(0);
-        if (spotLightView != null) {
-            spotLightView.updatePPTSpotLightShowArea();
-        }
-    }
 }
