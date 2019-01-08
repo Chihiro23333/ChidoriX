@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.bilibili.othercomponent.R;
+import com.bilibili.othercomponent.ui.fragment.TestFragmentActivity;
 import com.bilibili.othercomponent.ui.layoutmanager.CustomLayoutManagerActivity;
 import com.bilibili.othercomponent.ui.notification.NotificationActivity;
 import com.bilibili.othercomponent.ui.snaphelper.SnapHelperActivity;
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private Button bt_notifacation;
     private Button bt_layoutmanager;
     private Button bt_snaphelper;
+    private Button bt_fragment;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         bt_notifacation = findViewById(R.id.bt_notifacation);
         bt_layoutmanager = findViewById(R.id.bt_layoutmanager);
         bt_snaphelper = findViewById(R.id.bt_snaphelper);
+        bt_fragment = findViewById(R.id.bt_fragment);
         bt_notifacation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,6 +45,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 jump(SnapHelperActivity.class);
+            }
+        });
+        bt_fragment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jump(TestFragmentActivity.class);
             }
         });
 

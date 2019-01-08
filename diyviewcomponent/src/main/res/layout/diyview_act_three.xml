@@ -15,8 +15,8 @@
         android:text="@string/diyview_test"
         android:textSize="80sp"/>
 
-    <com.bilibili.diyviewcomponent.spotlight.spotlight.PullCircleView
+    <com.bilibili.diyviewcomponent.spotlight.pullview.PullCircleView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"/>
 
 </FrameLayout>
