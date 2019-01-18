@@ -43,6 +43,13 @@
             android:gravity="center"
             android:text="MultiTouchView"/>
 
+        <Button
+            android:id="@+id/six"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Xfermode"/>
+
     </LinearLayout>
 
 </ScrollView>

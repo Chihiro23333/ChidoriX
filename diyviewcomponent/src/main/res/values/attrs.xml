@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="diyview_CircleProgressView">
+        <attr name="diyview_cpv_radius" format="dimension"/>
+        <attr name="diyview_cpv_strokeWidth" format="dimension"/>
+        <attr name="diyview_cpv_ringColor" format="color"/>
+        <attr name="diyview_cpv_textColor" format="color"/>
+    </declare-styleable>
+
+</resources>
