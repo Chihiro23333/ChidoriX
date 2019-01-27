@@ -1,4 +1,4 @@
-package com.bilibili.threadcomponent.guardedsuspension;
+package com.bilibili.threadcomponent.guardedsuspension.sample;
 
 public class Test {
     public static void main(String args[]) {

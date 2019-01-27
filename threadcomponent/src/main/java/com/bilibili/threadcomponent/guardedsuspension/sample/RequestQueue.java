@@ -1,4 +1,4 @@
-package com.bilibili.threadcomponent.guardedsuspension;
+package com.bilibili.threadcomponent.guardedsuspension.sample;
 
 import java.util.LinkedList;
 import java.util.Queue;
