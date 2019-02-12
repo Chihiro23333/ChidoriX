@@ -27,6 +27,12 @@
             android:text="snaphelper" />
 
         <Button
+            android:id="@+id/bt_frg_act"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="frg_act" />
+
+        <Button
             android:id="@+id/bt_fragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

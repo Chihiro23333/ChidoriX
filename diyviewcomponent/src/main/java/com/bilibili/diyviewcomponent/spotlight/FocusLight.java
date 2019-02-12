@@ -1,4 +1,4 @@
-package com.bilibili.spolight;
+package com.bilibili.diyviewcomponent.spotlight;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -219,7 +219,7 @@ public class FocusLight extends View {
         float centerY = moveY;
         Log.i(TAG, "radius =" + moveRadius);
         RadialGradient r = new RadialGradient(centerX, centerY, moveRadius,
-                new int[]{Color.TRANSPARENT, bgColor},
+                new int[]{Color.TRANSPARENT, Color.TRANSPARENT},
                 new float[]{0.75f, 1.0f},
                 Shader.TileMode.CLAMP);
         movePaint.setShader(r);

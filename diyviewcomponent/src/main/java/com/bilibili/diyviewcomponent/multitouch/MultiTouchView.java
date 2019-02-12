@@ -25,23 +25,23 @@ public class MultiTouchView extends View {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
-        int actionIndex = event.getActionIndex();
-        int pointerId = event.getPointerId(actionIndex);
+//        int actionIndex = event.getActionIndex();
+//        int pointerId = event.getPointerId(actionIndex);
         switch (event.getActionMasked()) {
             case MotionEvent.ACTION_DOWN:
-//                Log.i(TAG, "ACTION_DOWN");
+                Log.i(TAG, "ACTION_DOWN");
                 break;
             case MotionEvent.ACTION_MOVE:
-//                Log.i(TAG, "ACTION_MOVE");
+                Log.i(TAG, "ACTION_MOVE");
                 break;
             case MotionEvent.ACTION_UP:
                 Log.i(TAG, "ACTION_UP");
                 break;
             case MotionEvent.ACTION_POINTER_DOWN:
-                Log.i(TAG, "ACTION_POINTER_DOWN" + actionIndex+"pointerId="+pointerId);
+//                Log.i(TAG, "ACTION_POINTER_DOWN" + actionIndex+"pointerId="+pointerId);
                 break;
             case MotionEvent.ACTION_POINTER_UP:
-                Log.i(TAG, "ACTION_POINTER_UP" + actionIndex+"pointerId="+pointerId);
+//                Log.i(TAG, "ACTION_POINTER_UP" + actionIndex+"pointerId="+pointerId);
                 break;
             default:
         }

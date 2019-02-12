@@ -22,6 +22,7 @@
         <activity android:name=".ui.notification.ResultActivity"/>
         <activity android:name=".ui.layoutmanager.CustomLayoutManagerActivity"/>
         <activity android:name=".ui.snaphelper.SnapHelperActivity"/>
+        <activity android:name=".ui.frg.FrgActivity"/>
         <activity android:name=".ui.fragment.TestFragmentActivity"/>
 
     </application>
