@@ -1,4 +1,4 @@
-package com.bilibili.threadcomponent.lock;
+package com.bilibili.threadcomponent.readwritelock.sample;
 
 public class Test {
 

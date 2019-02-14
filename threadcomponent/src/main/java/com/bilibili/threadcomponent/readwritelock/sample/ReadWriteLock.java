@@ -1,4 +1,4 @@
-package com.bilibili.threadcomponent.lock;
+package com.bilibili.threadcomponent.readwritelock.sample;
 
 public class ReadWriteLock {
 
@@ -7,15 +7,11 @@ public class ReadWriteLock {
     private int waitingWrite = 0;
     private boolean preferWrite = true;
 
-    public synchronized void readLock() {
+    public synchronized void readLock() throws InterruptedException {
         System.out.println(Thread.currentThread().getName() + ":BEGIN:readLock");
         while (writing > 0 || (preferWrite && waitingWrite > 0)) {
-            try {
-                System.out.println(Thread.currentThread().getName() + "readLock:wait");
-                wait();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            System.out.println(Thread.currentThread().getName() + "readLock:wait");
+            wait();
         }
         reading++;
         System.out.println(Thread.currentThread().getName() + ":END:readLock");
@@ -29,7 +25,7 @@ public class ReadWriteLock {
         System.out.println(Thread.currentThread().getName() + ":END:readUnLock");
     }
 
-    public synchronized void writeLock() {
+    public synchronized void writeLock() throws InterruptedException {
         System.out.println(Thread.currentThread().getName() + ":BEGIN:writeLock");
         waitingWrite++;
         try {
@@ -37,9 +33,8 @@ public class ReadWriteLock {
                 System.out.println(Thread.currentThread().getName() + "writeLock:wait");
                 wait();
             }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         } finally {
+            System.out.println(Thread.currentThread().getName() + "waitingWrite--");
             waitingWrite--;
         }
         writing++;

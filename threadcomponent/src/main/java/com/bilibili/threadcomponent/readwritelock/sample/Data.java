@@ -1,4 +1,4 @@
-package com.bilibili.threadcomponent.lock;
+package com.bilibili.threadcomponent.readwritelock.sample;
 
 public class Data {
     private char[] buffer;
@@ -12,7 +12,7 @@ public class Data {
         this.lock = new ReadWriteLock();
     }
 
-    public char[] read() {
+    public char[] read() throws InterruptedException {
         lock.readLock();
         try {
             return doRead();
@@ -21,10 +21,13 @@ public class Data {
         }
     }
 
-    public void write(char c) {
+    public void write(char c) throws InterruptedException {
         lock.writeLock();
-        doWrite(c);
-        lock.writeUnLock();
+        try {
+            doWrite(c);
+        } finally {
+            lock.writeUnLock();
+        }
     }
 
     private void doWrite(char c) {
@@ -32,7 +35,7 @@ public class Data {
             buffer[i] = c;
             slowly();
         }
-        System.out.println(Thread.currentThread().getName() + ":doWrite"+"char="+c);
+        System.out.println(Thread.currentThread().getName() + ":doWrite" + "char=" + c);
     }
 
     private char[] doRead() {
@@ -45,7 +48,7 @@ public class Data {
         return newBuff;
     }
 
-    private void slowly(){
+    private void slowly() {
         try {
             Thread.sleep(100);
         } catch (InterruptedException e) {
