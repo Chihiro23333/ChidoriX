@@ -30,6 +30,29 @@ android {
 //    address = "武汉工程大学"
 //}
 
+
+buildscript {
+    repositories {
+        maven {
+            url uri('../sample_repo')
+        }
+    }
+    dependencies {
+        classpath 'com.bilibili.sampleplugin:gradlesample:1.0.0'
+    }
+}
+
+apply plugin: 'sample'
+
+Extension {
+    param1 = 'app param1'
+    param2 = 'app param2'
+    NestExtension{
+        param1='app nestParam1'
+        param2='app nestParam2'
+    }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:27.1.1'
