@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.bilibili.diyviewcomponent.R;
+import com.bilibili.diyviewcomponent.opengl.OpenGLActivity;
 import com.bilibili.diyviewcomponent.util.Utils;
 import com.luojilab.router.facade.annotation.RouteNode;
 
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private View four;
     private View five;
     private View six;
+    private View seven;
+    private View eight;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,12 +35,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         four = findViewById(R.id.four);
         five = findViewById(R.id.five);
         six = findViewById(R.id.six);
+        seven = findViewById(R.id.seven);
+        eight =findViewById(R.id.eight);
         one.setOnClickListener(this);
         two.setOnClickListener(this);
         three.setOnClickListener(this);
         four.setOnClickListener(this);
         five.setOnClickListener(this);
         six.setOnClickListener(this);
+        seven.setOnClickListener(this);
+        eight.setOnClickListener(this);
 
         Log.i("eee", Utils.getStatusBarHeight(MainActivity.this) + "");
     }
@@ -63,6 +70,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.six:
                 Jump(XfermodeActivity.class);
                 break;
+            case R.id.seven:
+                Jump(OpenGLActivity.class   );
+                break;
+            case R.id.eight:
+                Jump(WatermarkActivity.class);
+                break;
+
+            default:
         }
     }
 

@@ -15,6 +15,9 @@ buildscript ({ it->
         maven {
             url uri('./repo')
         }
+        maven {
+            url uri('./sample_repo')
+        }
     }
     it.dependencies {
         classpath 'com.android.tools.build:gradle:2.3.3'
@@ -24,6 +27,7 @@ buildscript ({ it->
 //        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 //        classpath 'tv.bgm.plugin:diygradle:1.0.0'
+        classpath 'com.bilibili.sampleplugin:gradlesample:1.0.0'
     }
 })
 

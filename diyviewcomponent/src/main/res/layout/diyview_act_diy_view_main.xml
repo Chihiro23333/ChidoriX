@@ -50,6 +50,20 @@
             android:gravity="center"
             android:text="Xfermode"/>
 
+        <Button
+            android:id="@+id/seven"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="openGL"/>
+
+        <Button
+            android:id="@+id/eight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Watermark"/>
+
     </LinearLayout>
 
 </ScrollView>

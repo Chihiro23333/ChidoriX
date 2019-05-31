@@ -29,7 +29,7 @@ android {
     }
 
 
-    resourcePrefix "diyview_"
+//    resourcePrefix "diyview_"
 }
 
 dependencies {

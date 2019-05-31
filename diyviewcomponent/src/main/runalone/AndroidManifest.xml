@@ -28,6 +28,10 @@
         <activity android:name=".ui.ShapeActivity"/>
         <activity android:name=".ui.MultiTouchActivity"/>
         <activity android:name=".ui.XfermodeActivity"/>
+        <activity android:name=".opengl.OpenGLActivity"/>
+        <activity android:name=".ui.WatermarkActivity"
+            android:screenOrientation="landscape"
+            android:configChanges="screenSize|orientation"/>
     </application>
 
 </manifest>
