@@ -3,7 +3,6 @@ package com.bilibili.diyviewcomponent.watermark;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.Log;
 import android.view.View;
@@ -62,9 +61,38 @@ public class TextWatermark extends FrameLayout implements EditableWatermark {
     public void setWatermarkText(final String text) {
         textView.setText(text);
         textView.setTextSize(40);
-        textView.setTextColor(Color.YELLOW);
 
         updateBitmap();
+    }
+
+    @Override
+    public float getLeftRelativeToWidth() {
+        return watermark.getLeftRelativeToWidth();
+    }
+
+    @Override
+    public float getRightRelativeToWidth() {
+        return watermark.getRightRelativeToWidth();
+    }
+
+    @Override
+    public float getTopRelativeToHeight() {
+        return watermark.getTopRelativeToHeight();
+    }
+
+    @Override
+    public float getBottomRelativeToHeight() {
+        return watermark.getBottomRelativeToHeight();
+    }
+
+    @Override
+    public Bitmap getBitmap() {
+        return watermark.getBitmap();
+    }
+
+    @Override
+    public float getWatermarkAlpha() {
+        return watermark.getWatermarkAlpha();
     }
 
     @Override

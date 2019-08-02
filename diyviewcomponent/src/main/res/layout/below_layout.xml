@@ -41,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp"
-        android:background="@drawable/shape_bg"
+        android:background="@drawable/shape_watermark_input_bg"
         android:gravity="center"
         android:visibility="gone">
 

@@ -10,7 +10,7 @@ public interface EditableWatermark {
     int TYPE_IMG = 0;
     int TYPE_TEXT = 1;
 
-    //0-255
+    //0-1
     void setWatermarkAlpha(float alpha);
 
     //sp
@@ -24,6 +24,18 @@ public interface EditableWatermark {
     void setWatermarkImageBitmap(Bitmap bitmap);
 
     void setWatermarkText(String text);
+
+    float getLeftRelativeToWidth();
+
+    float getRightRelativeToWidth();
+
+    float getTopRelativeToHeight();
+
+    float getBottomRelativeToHeight();
+
+    Bitmap getBitmap();
+
+    float getWatermarkAlpha();
 
     int getType();
 }

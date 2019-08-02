@@ -7,4 +7,6 @@ public interface OnWaterInterface {
     void onGetColor(int color);
 
     void onInuptText(String text);
+
+    void onAlphaChange(float alpha);
 }

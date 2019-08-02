@@ -5,18 +5,19 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.DashPathEffect;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.PixelFormat;
 import android.graphics.RectF;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.os.Parcelable;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 
-import com.bilibili.diyviewcomponent.R;
+import com.bilibili.diyviewcomponent.view.BitmapView;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -41,7 +42,8 @@ public class ImageWatermark extends AppCompatImageView implements EditableWaterm
     private static final int RIGHT_TOP = 2;
     private static final int RIGHT_BOTTOM = 3;
 
-    private static final int TOUCH_RADIUS = 100;
+    private static final int WATERMARK_MIN_WIDTH = 30;
+    private static final int TOUCH_AREA_OUTER = 50;
 
     Map<Integer, RectF> scaleMap;
 
@@ -64,7 +66,10 @@ public class ImageWatermark extends AppCompatImageView implements EditableWaterm
 
     private void initPaint() {
         touchPaint = new Paint();
-        touchPaint.setColor(Color.BLUE);
+        touchPaint.setColor(Color.RED);
+        touchPaint.setStrokeWidth(3);
+        touchPaint.setStyle(Paint.Style.STROKE);
+        touchPaint.setPathEffect(new DashPathEffect(new float[]{20, 20}, 0));
     }
 
     @Override
@@ -95,12 +100,69 @@ public class ImageWatermark extends AppCompatImageView implements EditableWaterm
     @Override
     public void setWatermarkImageBitmap(Bitmap bitmap) {
         setImageBitmap(bitmap);
+        //真实宽度小于最低宽度
+        if (getRealWidth() < WATERMARK_MIN_WIDTH * 2 || getRealHeight() < WATERMARK_MIN_WIDTH * 2) {
+            RectF matrixRectF = getMatrixRectF();
+            float scale = Math.max(WATERMARK_MIN_WIDTH * 2 / getRealHeight(), WATERMARK_MIN_WIDTH * 2 / getRealWidth());
+            matrix.postScale(scale, scale, matrixRectF.right, matrixRectF.top);
+        }
+        //真实宽度大于最低宽度，缩小并移动到最右边
+        if (getRealWidth() > WATERMARK_MIN_WIDTH * 4 || getRealHeight() > WATERMARK_MIN_WIDTH * 2) {
+            RectF matrixRectF = getMatrixRectF();
+            float scale = Math.max(WATERMARK_MIN_WIDTH * 4 / getRealHeight(), WATERMARK_MIN_WIDTH * 4 / getRealWidth());
+            matrix.postScale(scale, scale, matrixRectF.right, matrixRectF.top);
+        }
+        move(-10000, 10000);
+        setImageMatrix(matrix);
     }
 
     @Override
     public void setWatermarkText(String text) {
 
     }
+
+    @Override
+    public float getLeftRelativeToWidth() {
+        return getMatrixRectF().left / getWidth();
+    }
+
+    @Override
+    public float getRightRelativeToWidth() {
+        return getMatrixRectF().right / getWidth();
+    }
+
+    @Override
+    public float getTopRelativeToHeight() {
+        return getMatrixRectF().top / getHeight();
+    }
+
+    @Override
+    public float getBottomRelativeToHeight() {
+        return getMatrixRectF().bottom / getHeight();
+    }
+
+    @Override
+    public Bitmap getBitmap() {
+        return getBitmap(getDrawable());
+    }
+
+    @Override
+    public float getWatermarkAlpha() {
+        return getAlpha();
+    }
+
+    private Bitmap getBitmap(Drawable drawable) {
+        Bitmap bitmap = Bitmap.createBitmap(
+                (int) getRealWidth(),
+                (int) getRealHeight(),
+                drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
+                        : Bitmap.Config.RGB_565);
+        Canvas canvas = new Canvas(bitmap);
+        drawable.setBounds(0, 0, (int) getRealWidth(), (int) getRealHeight());
+        drawable.draw(canvas);
+        return bitmap;
+    }
+
 
     @Override
     public int getType() {
@@ -112,8 +174,8 @@ public class ImageWatermark extends AppCompatImageView implements EditableWaterm
         cacheMatrix.set(matrix);
         updateScaleRect();
         touchDirection = getTouchDirection(e.getX(), e.getY());
-//        Log.i(TAG, "downX="+e.getX()+":downY="+e.getY()+"touchD="+touchDirection);
-        return isPointInRect(e.getX(), e.getY(),getMatrixRectF());
+        Log.i(TAG, "downX=" + e.getX() + ":downY=" + e.getY() + "touchD=" + touchDirection);
+        return isPointInRect(e.getX(), e.getY(), getMatrixRectFWithTouchArea());
     }
 
     @Override
@@ -129,64 +191,119 @@ public class ImageWatermark extends AppCompatImageView implements EditableWaterm
     @Override
     public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
         RectF matrixRectF = getMatrixRectF();
+        Log.i(TAG, "distanceX=" + distanceX + ":distanceY" + distanceY);
+        float x = e2.getX();
+        float y = e2.getY();
         float scaleRate;
         switch (touchDirection) {
             case LEFT_TOP:
-                scaleRate = caculatePointToVertex(e2.getX(), e2.getY(), matrixRectF.right, matrixRectF.bottom) /
-                        caculatePointToVertex(e2.getX() + distanceX, e2.getY() + distanceY, matrixRectF.right, matrixRectF.bottom);
-                scaleRate = correctScaleRate(scaleRate);
-                Log.i(TAG, "scaleRate=" + scaleRate);
-                matrix.postScale(scaleRate, scaleRate, matrixRectF.right, matrixRectF.bottom);
+                if (x <= matrixRectF.right && y <= matrixRectF.bottom) {
+                    scaleRate = caculatePointToVertex(x, y, matrixRectF.right, matrixRectF.bottom) /
+                            caculatePointToVertex(x + distanceX, y + distanceY, matrixRectF.right, matrixRectF.bottom);
+                    scaleRate = correctScaleRate(scaleRate);
+                    Log.i(TAG, "scaleRate=" + scaleRate);
+                    matrix.postScale(scaleRate, scaleRate, matrixRectF.right, matrixRectF.bottom);
+                }
                 break;
 
             case LEFT_BOTTOM:
-                scaleRate = caculatePointToVertex(e2.getX(), e2.getY(), matrixRectF.right, matrixRectF.top) /
-                        caculatePointToVertex(e2.getX() + distanceX, e2.getY() + distanceY, matrixRectF.right, matrixRectF.top);
-                scaleRate = correctScaleRate(scaleRate);
-                Log.i(TAG, "scaleRate=" + scaleRate);
-                matrix.postScale(scaleRate, scaleRate, matrixRectF.right, matrixRectF.top);
+                Log.i(TAG, "x=" + x + ":y=" + y + "matrixRectF.right=" + matrixRectF.right + "matrixRectF.top=" + matrixRectF.top);
+                if (x <= matrixRectF.right && y >= matrixRectF.top) {
+                    scaleRate = caculatePointToVertex(x, y, matrixRectF.right, matrixRectF.top) /
+                            caculatePointToVertex(x + distanceX, y + distanceY, matrixRectF.right, matrixRectF.top);
+                    scaleRate = correctScaleRate(scaleRate);
+                    Log.i(TAG, "scaleRate=" + scaleRate);
+                    matrix.postScale(scaleRate, scaleRate, matrixRectF.right, matrixRectF.top);
+                }
                 break;
 
             case RIGHT_TOP:
-                scaleRate = caculatePointToVertex(e2.getX(), e2.getY(), matrixRectF.left, matrixRectF.bottom) /
-                        caculatePointToVertex(e2.getX() + distanceX, e2.getY() + distanceY, matrixRectF.left, matrixRectF.bottom);
-                scaleRate = correctScaleRate(scaleRate);
-                Log.i(TAG, "scaleRate=" + scaleRate);
-                matrix.postScale(scaleRate, scaleRate, matrixRectF.left, matrixRectF.bottom);
+                if (x >= matrixRectF.left && y <= matrixRectF.bottom) {
+                    scaleRate = caculatePointToVertex(x, y, matrixRectF.left, matrixRectF.bottom) /
+                            caculatePointToVertex(x + distanceX, y + distanceY, matrixRectF.left, matrixRectF.bottom);
+                    scaleRate = correctScaleRate(scaleRate);
+                    Log.i(TAG, "scaleRate=" + scaleRate);
+                    matrix.postScale(scaleRate, scaleRate, matrixRectF.left, matrixRectF.bottom);
+                }
                 break;
 
             case RIGHT_BOTTOM:
-                scaleRate = caculatePointToVertex(e2.getX(), e2.getY(), matrixRectF.left, matrixRectF.top) /
-                        caculatePointToVertex(e2.getX() + distanceX, e2.getY() + distanceY, matrixRectF.left, matrixRectF.top);
-                scaleRate = correctScaleRate(scaleRate);
-                Log.i(TAG, "scaleRate=" + scaleRate);
-                matrix.postScale(scaleRate, scaleRate, matrixRectF.left, matrixRectF.top);
+                if (x >= matrixRectF.left && y >= matrixRectF.top) {
+                    scaleRate = caculatePointToVertex(x, y, matrixRectF.left, matrixRectF.top) /
+                            caculatePointToVertex(x + distanceX, y + distanceY, matrixRectF.left, matrixRectF.top);
+                    scaleRate = correctScaleRate(scaleRate);
+                    Log.i(TAG, "scaleRate=" + scaleRate);
+                    matrix.postScale(scaleRate, scaleRate, matrixRectF.left, matrixRectF.top);
+                }
                 break;
 
             default:
                 Log.i(TAG, "distanceX=" + distanceX + "distanceY=" + distanceY);
                 Log.i(TAG, "left=" + matrixRectF.left + "right=" + matrixRectF.right);
-
-                distanceX = matrixRectF.left - distanceX < 0 ? matrixRectF.left : distanceX;
-                distanceX = matrixRectF.right - distanceX > getWidth() ? -getWidth() + matrixRectF.right : distanceX;
-
-                distanceY = matrixRectF.top - distanceY < 0 ? matrixRectF.top : distanceY;
-                distanceY = matrixRectF.bottom - distanceY > getHeight() ? -getHeight() + matrixRectF.bottom : distanceY;
-
-                matrix.postTranslate(-distanceX, -distanceY);
+                move(distanceX, distanceY);
         }
         setImageMatrix(matrix);
 
         //可以省略测的操作
-        updateScaleRect();
         postInvalidate();
         return true;
+    }
+
+    private boolean isPointInTouchRect(float x, float y) {
+        Set<Map.Entry<Integer, RectF>> entries = scaleMap.entrySet();
+        for (Map.Entry<Integer, RectF> entry : entries) {
+            RectF value = entry.getValue();
+            if (isPointInRect(x, y, value)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void move(float distanceX, float distanceY) {
+        //优先保证left不超过
+        distanceX = correctXBounds(distanceX);
+        //优先保证top不超过
+        distanceY = correctYBounds(distanceY);
+        matrix.postTranslate(-distanceX, -distanceY);
+    }
+
+    private float correctXBounds(float distanceX) {
+        RectF matrixRectF = getMatrixRectF();
+        distanceX = matrixRectF.right - distanceX > getWidth() ? -getWidth() + matrixRectF.right : distanceX;
+        distanceX = matrixRectF.left - distanceX < 0 ? matrixRectF.left : distanceX;
+        return distanceX;
+    }
+
+    private float correctYBounds(float distanceY) {
+        RectF matrixRectF = getMatrixRectF();
+        distanceY = matrixRectF.bottom - distanceY > getHeight() ? -getHeight() + matrixRectF.bottom : distanceY;
+        distanceY = matrixRectF.top - distanceY < 0 ? matrixRectF.top : distanceY;
+        return distanceY;
+    }
+
+    private float getRealWidth() {
+        RectF matrixRectF = getMatrixRectF();
+        return matrixRectF.right - matrixRectF.left;
+    }
+
+    private float getRealHeight() {
+        RectF matrixRectF = getMatrixRectF();
+        return matrixRectF.bottom - matrixRectF.top;
     }
 
     private float correctScaleRate(float scaleRate) {
         RectF matrixRectF = getMatrixRectF();
         float w = matrixRectF.right - matrixRectF.left;
         float h = matrixRectF.bottom - matrixRectF.top;
+
+        if ((w <= WATERMARK_MIN_WIDTH * 2 || h <= WATERMARK_MIN_WIDTH * 2) && scaleRate <= 1) {
+            return 1;
+        }
+
+        if (w * scaleRate <= WATERMARK_MIN_WIDTH * 2 || h * scaleRate <= WATERMARK_MIN_WIDTH * 2) {
+            return Math.max(WATERMARK_MIN_WIDTH * 2 / w, WATERMARK_MIN_WIDTH * 2 / h);
+        }
 
         switch (touchDirection) {
             case LEFT_TOP:
@@ -253,12 +370,23 @@ public class ImageWatermark extends AppCompatImageView implements EditableWaterm
         float top = matrixRectF.top;
         float bottom = matrixRectF.bottom;
 
-//        Log.i(TAG,  "updateScaleRect left="+left+"right="+right);
+        float w = right - left;
+        float h = bottom - top;
 
-        scaleMap.put(LEFT_TOP, new RectF(left, top, left + TOUCH_RADIUS, top + TOUCH_RADIUS));
-        scaleMap.put(LEFT_BOTTOM, new RectF(left, bottom - TOUCH_RADIUS, left + TOUCH_RADIUS, bottom));
-        scaleMap.put(RIGHT_TOP, new RectF(right - TOUCH_RADIUS, top, right, top + TOUCH_RADIUS));
-        scaleMap.put(RIGHT_BOTTOM, new RectF(right - TOUCH_RADIUS, bottom - TOUCH_RADIUS, right, bottom));
+        float innerVertical = getTouchAreaInnerAdd(h);
+        float horizontal = getTouchAreaInnerAdd(w);
+
+        scaleMap.put(LEFT_TOP, new RectF(left - TOUCH_AREA_OUTER, top - TOUCH_AREA_OUTER, left + horizontal, top + innerVertical));
+        scaleMap.put(LEFT_BOTTOM, new RectF(left - TOUCH_AREA_OUTER, bottom - innerVertical, left + horizontal, bottom + TOUCH_AREA_OUTER));
+        scaleMap.put(RIGHT_TOP, new RectF(right - horizontal, top - TOUCH_AREA_OUTER, right + TOUCH_AREA_OUTER, top + innerVertical));
+        scaleMap.put(RIGHT_BOTTOM, new RectF(right - horizontal, bottom - innerVertical, right + TOUCH_AREA_OUTER, bottom + TOUCH_AREA_OUTER));
+    }
+
+    private float getTouchAreaInnerAdd(float wOrh) {
+        if (wOrh < 80) {
+            return wOrh / 10;
+        }
+        return wOrh / 3;
     }
 
     private RectF getMatrixRectF() {
@@ -277,9 +405,22 @@ public class ImageWatermark extends AppCompatImageView implements EditableWaterm
         return rect;
     }
 
+    private RectF getMatrixRectFWithTouchArea() {
+        RectF matrixRectF = getMatrixRectF();
+        matrixRectF.left = matrixRectF.left -= TOUCH_AREA_OUTER;
+        matrixRectF.top = matrixRectF.top -= TOUCH_AREA_OUTER;
+        matrixRectF.right = matrixRectF.right += TOUCH_AREA_OUTER;
+        matrixRectF.bottom = matrixRectF.bottom += TOUCH_AREA_OUTER;
+        return matrixRectF;
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        if (getDrawable() == null) {
+            return;
+        }
+        updateScaleRect();
         drawTouchRectF(canvas);
     }
 

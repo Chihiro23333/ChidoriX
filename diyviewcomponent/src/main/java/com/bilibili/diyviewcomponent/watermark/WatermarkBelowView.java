@@ -63,6 +63,10 @@ public class WatermarkBelowView extends FrameLayout {
         return et_input.getText().toString();
     }
 
+    public void setEditNull() {
+        et_input.setText("");
+    }
+
 
     private void setColorData(Context context) {
         int[] intArray = getResources().getIntArray(R.array.color_array);

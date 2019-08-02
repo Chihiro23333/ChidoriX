@@ -2,6 +2,7 @@ package com.bilibili.diyviewcomponent.watermark;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -27,6 +28,8 @@ public class WatermarkBoard extends FrameLayout {
 
     private EditableWatermark watermark;
 
+    private WatermarkBitmapView bitmapView;
+
     public WatermarkBoard(@NonNull Context context) {
         this(context, null);
     }
@@ -37,16 +40,42 @@ public class WatermarkBoard extends FrameLayout {
 
     public WatermarkBoard(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        initDefault(context);
+        addWatermarkBitmapView(context);
     }
 
-    private void initDefault(Context context) {
-        setBackgroundColor(context.getResources().getColor(R.color.common_colorAccent));
+    private void addWatermarkBitmapView(Context context) {
+        bitmapView = new WatermarkBitmapView(getContext());
+        addView(bitmapView);
+        bitmapView.setVisibility(INVISIBLE);
     }
 
-    public void addWatermark(EditableWatermark watermark){
+    public Bitmap getAlphaBitmap() {
+        Bitmap bitmap = null;
+        if (bitmapView != null) {
+            Bitmap wa = watermark.getBitmap();
+            if (wa != null) {
+                bitmapView.updateBitmapAndAlpha(wa, (int) (watermark.getWatermarkAlpha() * 255));
+                bitmapView.setDrawingCacheEnabled(true);
+                Bitmap drawingCache = bitmapView.getDrawingCache();
+                if (drawingCache != null) {
+                    bitmap = Bitmap.createBitmap(drawingCache, 0, 0, wa.getWidth(), wa.getHeight());
+                }
+                bitmapView.setDrawingCacheEnabled(false);
+            }
+        }
+        return bitmap;
+    }
+
+    public void addBackground(View view) {
+        LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        addView(view, 0, layoutParams);
+    }
+
+    public void addWatermark(EditableWatermark watermark) {
         this.watermark = watermark;
-        removeAllViews();
+        if (getChildCount() > 2) {
+            removeViewAt(2);
+        }
         LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         layoutParams.gravity = Gravity.RIGHT;
         addView((View) watermark, layoutParams);
@@ -54,5 +83,20 @@ public class WatermarkBoard extends FrameLayout {
 
     public EditableWatermark getWatermark() {
         return watermark;
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        int hSize = MeasureSpec.getSize(heightMeasureSpec);
+        int wSize = MeasureSpec.getSize(widthMeasureSpec);
+        float rate = hSize * 1f / wSize;
+        if (rate > 3f / 4) {
+            hSize = wSize * 3 / 4;
+        } else {
+            wSize = hSize * 4 / 3;
+        }
+        int wm = MeasureSpec.makeMeasureSpec(wSize, MeasureSpec.EXACTLY);
+        int hm = MeasureSpec.makeMeasureSpec(hSize, MeasureSpec.EXACTLY);
+        super.onMeasure(wm, hm);
     }
 }
