@@ -12,22 +12,22 @@ buildscript ({ it->
         maven {
             url 'https://dl.bintray.com/leobert-lan-oss/maven/'
         }
-        maven {
-            url uri('./repo')
-        }
-        maven {
-            url uri('./sample_repo')
-        }
+//        maven {
+//            url uri('./repo')
+//        }
+//        maven {
+//            url uri('./sample_repo')
+//        }
     }
     it.dependencies {
         classpath 'com.android.tools.build:gradle:2.3.3'
-//        classpath 'com.luojilab.ddcomponent:build-gradle:1.1.0'
-        classpath 'com.dd.buildgradle:build-gradle:1.0.0'
+        classpath 'com.luojilab.ddcomponent:build-gradle:1.1.0'
+//        classpath 'com.dd.buildgradle:build-gradle:1.0.0'
 //        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
 //        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 //        classpath 'tv.bgm.plugin:diygradle:1.0.0'
-        classpath 'com.bilibili.sampleplugin:gradlesample:1.0.0'
+//        classpath 'com.bilibili.sampleplugin:gradlesample:1.0.0'
     }
 })
 

@@ -17,7 +17,7 @@ targetCompatibility = "1.7"
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.2"
+    buildToolsVersion "28.0.2"
 
     defaultConfig {
         minSdkVersion 15
