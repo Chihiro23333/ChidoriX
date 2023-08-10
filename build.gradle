@@ -1,28 +1,40 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript ({ it->
-    ext.kotlin_version = '1.2.30'
+    ext.kotlin_version = '1.6.0'
     it.repositories {
-        jcenter()
-        maven { url "https://jitpack.io" }
-        maven {
-            url 'https://maven.google.com/'
-            name 'Google'
-        }
-        maven {
-            url 'https://dl.bintray.com/leobert-lan-oss/maven/'
-        }
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url 'https://maven.aliyun.com/repository/spring' }
+        maven { url 'https://maven.aliyun.com/repository/spring-plugin' }
+        maven { url 'https://maven.aliyun.com/repository/releases' }
+        maven { url 'https://maven.aliyun.com/repository/spring-plugin' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/releases' }
+        maven { url 'https://maven.aliyun.com/repository/grails-core' }
+        maven { url 'https://maven.aliyun.com/repository/mapr-public' }
+//        jcenter()
+//        maven { url "https://jitpack.io" }
 //        maven {
-//            url uri('./repo')
+//            url 'https://maven.google.com/'
+//            name 'Google'
 //        }
+//        maven {
+//            url 'https://dl.bintray.com/leobert-lan-oss/maven/'
+//        }
+        maven {
+            url uri('./repo')
+        }
 //        maven {
 //            url uri('./sample_repo')
 //        }
     }
     it.dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
-        classpath 'com.luojilab.ddcomponent:build-gradle:1.1.0'
-//        classpath 'com.dd.buildgradle:build-gradle:1.0.0'
+        classpath 'com.android.tools.build:gradle:3.6.4'
+//        classpath 'com.luojilab.ddcomponent:build-gradle:1.1.0'
+        classpath 'com.dd.buildgradle:build-gradle:1.0.0'
 //        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
 //        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
@@ -33,21 +45,31 @@ buildscript ({ it->
 
 allprojects {
     repositories {
-
-        mavenCentral()
-        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
-        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
-        maven { url "http://maven.aliyun.com/nexus/content/repositories/releases" }
-        maven { url 'http://repo.baichuan-android.taobao.com/content/groups/BaichuanRepositories/' }
-        maven { url "https://maven.google.com" }
-        jcenter()
-        maven { url "https://jitpack.io" }
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url 'https://maven.aliyun.com/repository/spring' }
+        maven { url 'https://maven.aliyun.com/repository/spring-plugin' }
+        maven { url 'https://maven.aliyun.com/repository/releases' }
+        maven { url 'https://maven.aliyun.com/repository/spring-plugin' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/releases' }
+        maven { url 'https://maven.aliyun.com/repository/grails-core' }
+        maven { url 'https://maven.aliyun.com/repository/mapr-public' }
+//        mavenCentral()
+//        maven { url "https://maven.google.com" }
+//        jcenter()
+//        maven { url "https://jitpack.io" }
+//        maven {
+//            url 'https://dl.bintray.com/leobert-lan-oss/maven/'
+//        }
+//        maven {
+//            url 'https://maven.google.com/'
+//            name 'Google'
+//        }
         maven {
-            url 'https://dl.bintray.com/leobert-lan-oss/maven/'
-        }
-        maven {
-            url 'https://maven.google.com/'
-            name 'Google'
+            url uri('./repo')
         }
     }
 }
