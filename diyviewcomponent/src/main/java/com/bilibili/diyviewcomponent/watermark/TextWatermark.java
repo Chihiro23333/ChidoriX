@@ -3,7 +3,7 @@ package com.bilibili.diyviewcomponent.watermark;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.support.v7.widget.AppCompatTextView;
+import androidx.appcompat.widget.AppCompatTextView;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;

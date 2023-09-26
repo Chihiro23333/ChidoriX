@@ -16,12 +16,12 @@ targetCompatibility = "1.7"
 //}
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "28.0.2"
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 26
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
@@ -38,10 +38,11 @@ android {
 
 dependencies {
 //    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:26.+'
-    compile project(':router-annotation')
+//    compile 'com.android.support:appcompat-v7:26.+'
+    api  rootProject.ext.dependencies.appcompat
+    api project(':router-annotation')
 //    compile 'com.github.jimu:router-annotation:1.0.1'
-    compile 'com.google.code.gson:gson:2.8.2'
+    implementation 'com.google.code.gson:gson:2.8.2'
 
 }
 

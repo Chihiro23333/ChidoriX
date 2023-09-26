@@ -1,6 +1,6 @@
 package com.bilibili.itemdecorationcomponent.interf;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.widget.RecyclerView;
 import android.view.View;
 
 public interface IDecoration {

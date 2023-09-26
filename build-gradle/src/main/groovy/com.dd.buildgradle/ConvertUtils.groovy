@@ -36,7 +36,7 @@ class ConvertUtils {
                 while (classes.hasMoreElements()) {
                     JarEntry libClass = classes.nextElement()
                     String className = libClass.getName()
-                    if (className.endsWith(SdkConstants.DOT_CLASS)) {
+                    if (className.endsWith(SdkConstants.DOT_CLASS) && !className.startsWith("META-INF/")) {
                         className = className.substring(0, className.length() - SdkConstants.DOT_CLASS.length()).replaceAll('/', '.')
                         System.out.println("##########" + className)
                         if (classNames.contains(className)) {

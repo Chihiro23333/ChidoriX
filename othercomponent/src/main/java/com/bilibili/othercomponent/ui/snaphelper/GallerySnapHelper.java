@@ -1,12 +1,12 @@
 package com.bilibili.othercomponent.ui.snaphelper;
 
 import android.graphics.PointF;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.OrientationHelper;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SnapHelper;
+import androidx.annotation.Nullable;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.LinearLayoutManager;
+import androidx.appcompat.widget.OrientationHelper;
+import androidx.appcompat.widget.RecyclerView;
+import androidx.appcompat.widget.SnapHelper;
 import android.view.View;
 
 import java.util.List;

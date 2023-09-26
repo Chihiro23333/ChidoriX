@@ -1,8 +1,8 @@
 package tv.bgm.materialdesgincomponent.irecyclerview;
 
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
+import androidx.appcompat.widget.GridLayoutManager;
+import androidx.appcompat.widget.RecyclerView;
+import androidx.appcompat.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;

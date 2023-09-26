@@ -3,7 +3,9 @@ package com.luojilab.component.componentlib.router.ui;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /**
  * router behaviors for component type
@@ -28,5 +30,6 @@ public interface IComponentRouter {
 
     boolean verifyUri(Uri uri);
 
-    @NonNull VerifyResult verifyUri(Uri uri, Bundle bundle, boolean checkParams);
+    @NonNull
+    VerifyResult verifyUri(Uri uri, Bundle bundle, boolean checkParams);
 }

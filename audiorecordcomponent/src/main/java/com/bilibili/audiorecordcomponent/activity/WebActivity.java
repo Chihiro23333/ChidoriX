@@ -1,9 +1,9 @@
 package com.bilibili.audiorecordcomponent.activity;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.bilibili.audiorecordcomponent.R;
 

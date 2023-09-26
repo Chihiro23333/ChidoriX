@@ -3,8 +3,8 @@ package tv.bgm.materialdesgincomponent.dialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.ViewGroup;
 
 import tv.bgm.materialdesgincomponent.R;

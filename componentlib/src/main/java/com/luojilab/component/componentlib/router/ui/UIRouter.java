@@ -3,7 +3,9 @@ package com.luojilab.component.componentlib.router.ui;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
 
 import com.luojilab.component.componentlib.exceptions.UiRouterException;

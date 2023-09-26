@@ -1,13 +1,13 @@
 apply plugin: 'com.dd.comgradle'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "28.0.2"
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
 
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 26
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
@@ -28,15 +28,21 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
 
 //    resourcePrefix "diyview_"
 }
 
 dependencies {
-    compile project(':componentservice')
+    api project(':basicres')
+    api project(':componentservice')
 //    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:recyclerview-v7:26.1.0'
+//    implementation 'com.android.support:recyclerview-v7:26.1.0'
 //    compile files('src/libs/okhttp-3.11.0.jar')
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
 }
 
 combuild {

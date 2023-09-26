@@ -1,12 +1,12 @@
 package com.bilibili.itemdecorationcomponent.activity;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.OrientationHelper;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
+import androidx.appcompat.widget.GridLayoutManager;
+import androidx.appcompat.widget.LinearLayoutManager;
+import androidx.appcompat.widget.OrientationHelper;
+import androidx.appcompat.widget.RecyclerView;
+import androidx.appcompat.widget.StaggeredGridLayoutManager;
 
 import com.bilibili.itemdecorationcomponent.R;
 import com.bilibili.itemdecorationcomponent.adapter.SampleAdapter;

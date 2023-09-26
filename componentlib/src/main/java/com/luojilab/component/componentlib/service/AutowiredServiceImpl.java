@@ -1,7 +1,9 @@
 package com.luojilab.component.componentlib.service;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.util.LruCache;
 
 import com.luojilab.component.componentlib.exceptions.ParamException;

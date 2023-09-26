@@ -11,7 +11,7 @@
         android:gravity="center"
         android:text="fullscreen" />
 
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="bottom dialog"

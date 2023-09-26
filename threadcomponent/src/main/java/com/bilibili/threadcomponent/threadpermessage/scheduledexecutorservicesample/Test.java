@@ -1,6 +1,6 @@
 package com.bilibili.threadcomponent.threadpermessage.scheduledexecutorservicesample;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;

@@ -2,9 +2,9 @@ package com.bilibili.diyviewcomponent.pulltorefresh;
 
 
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.v4.view.MotionEventCompat;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,7 +17,7 @@ import com.bilibili.diyviewcomponent.R;
  * Created by Chihiro on 2018/7/28.
  */
 
-public class IRecyclerView extends RecyclerView{
+public class IRecyclerView extends RecyclerView {
 
     private RefreshHeaderLayout refreshHeaderContainer;
 

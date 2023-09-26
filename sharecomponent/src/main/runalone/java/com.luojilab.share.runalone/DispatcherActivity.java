@@ -2,7 +2,7 @@
 package com.luojilab.share.runalone;
 
 import android.net.Uri;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 

@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!--<android.support.v7.widget.AppCompatTextView-->
+        <!--<androidx.appcompat.widget.AppCompatTextView-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="100dp"-->
         <!--android:text="hahahah"-->
@@ -39,7 +39,7 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:title="CollapsingToolbarLayout">
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:color/darker_gray"
@@ -48,7 +48,7 @@
                 android:layout_marginTop="60dp"/>
 
 
-            <android.support.v7.widget.Toolbar
+            <androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:background="@android:color/holo_blue_dark"
@@ -69,11 +69,11 @@
                     android:text="添加"
                     android:layout_gravity="right"/>
 
-            </android.support.v7.widget.Toolbar>
+            </androidx.appcompat.widget.Toolbar>
 
         </android.support.design.widget.CollapsingToolbarLayout>
 
-        <android.support.v7.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="tab"
@@ -89,7 +89,7 @@
     </tv.bgm.materialdesgincomponent.irecyclerview.IRecyclerView>
 
 
-    <!--<android.support.v7.widget.AppCompatTextView-->
+    <!--<androidx.appcompat.widget.AppCompatTextView-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="60dp"-->
         <!--android:background="@android:color/holo_red_dark"-->

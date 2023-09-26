@@ -1,6 +1,6 @@
 package com.bilibili.threadcomponent.threadpermessage.threadfactorysample;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.concurrent.ThreadFactory;
 

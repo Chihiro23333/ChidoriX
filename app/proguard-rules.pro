@@ -25,7 +25,7 @@
 #-renamesourcefileattribute SourceFile
 -ignorewarnings
 -dontoptimize
--keep class !android.support.v7.view.menu.*MenuBuilder*, android.support.v7.** { *; }
+-keep class !androidx.appcompat.view.menu.*MenuBuilder*, androidx.appcompat.** { *; }
 -keep class android.support.v4.** { *; }
 -keep interface android.support.** { *; }
 -keepattributes Signature

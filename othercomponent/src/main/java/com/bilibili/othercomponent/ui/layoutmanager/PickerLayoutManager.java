@@ -1,9 +1,9 @@
 package com.bilibili.othercomponent.ui.layoutmanager;
 
 import android.content.Context;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.LinearSnapHelper;
-import android.support.v7.widget.RecyclerView;
+import androidx.appcompat.widget.LinearLayoutManager;
+import androidx.appcompat.widget.LinearSnapHelper;
+import androidx.appcompat.widget.RecyclerView;
 import android.view.View;
 
 /**
