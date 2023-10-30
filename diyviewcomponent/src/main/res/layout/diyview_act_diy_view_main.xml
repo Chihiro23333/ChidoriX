@@ -64,6 +64,13 @@
             android:gravity="center"
             android:text="Watermark"/>
 
+        <Button
+            android:id="@+id/doodle1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Doodle1"/>
+
     </LinearLayout>
 
 </ScrollView>

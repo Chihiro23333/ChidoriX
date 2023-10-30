@@ -28,3 +28,4 @@ include ':diyviewcomponent',
         ':basicres',
         ':router-annotation',
         ':router-anno-compiler'
+include ':templatecomponent'

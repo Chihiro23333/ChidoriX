@@ -68,7 +68,7 @@ public class TypeUtils {
                     return Type.PARCELABLE.ordinal();
                 }
 //                else if (types.isSubtype(typeMirror, serializableType)) {
-//                    return Type.SERIALIZABLE.ordinal(); 暂不支持需要做转型
+//                    return Type.SERIALIZABLE.ordinal();
 //                }
                 else {    // For others
                     return Type.OBJECT.ordinal();

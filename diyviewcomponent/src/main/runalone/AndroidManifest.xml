@@ -10,7 +10,7 @@
         android:theme="@style/commonAppTheme"
         tools:replace="android:label">
 
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".d3.D3Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,6 +32,7 @@
         <activity android:name=".ui.WatermarkActivity"
             android:screenOrientation="landscape"
             android:configChanges="screenSize|orientation"/>
+        <activity android:name=".ui.DoodleActivity"/>
     </application>
 
 </manifest>

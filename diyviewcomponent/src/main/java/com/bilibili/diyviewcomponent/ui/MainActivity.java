@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private View seven;
     private View eight;
 
+    private View doodle1;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         six = findViewById(R.id.six);
         seven = findViewById(R.id.seven);
         eight =findViewById(R.id.eight);
+        doodle1 = findViewById(R.id.doodle1);
         one.setOnClickListener(this);
         two.setOnClickListener(this);
         three.setOnClickListener(this);
@@ -45,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         six.setOnClickListener(this);
         seven.setOnClickListener(this);
         eight.setOnClickListener(this);
+        doodle1.setOnClickListener(this);
 
         Log.i("eee", Utils.getStatusBarHeight(MainActivity.this) + "");
     }
@@ -75,6 +79,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.eight:
                 Jump(WatermarkActivity.class);
+                break;
+            case R.id.doodle1:
+                Jump(DoodleActivity.class);
                 break;
 
             default:
