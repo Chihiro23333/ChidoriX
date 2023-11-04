@@ -5,7 +5,7 @@
     <application
         android:name=".TemplateApplication"
         android:allowBackup="true"
-        android:label="@string/diyview_app_name"
+        android:label="@string/template_app_name"
         android:supportsRtl="true"
         android:theme="@style/commonAppTheme"
         tools:replace="android:label">

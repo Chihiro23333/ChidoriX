@@ -1,5 +1,6 @@
 package com.bilibili.diyviewcomponent.watermark;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -80,100 +81,100 @@ public class WatermarkActionbar extends LinearLayout implements View.OnClickList
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.iv_add:
-                bv_view.setUnVisi();
-                iv_tt.setImageResource(R.mipmap.tt);
-                iv_paint_color.setImageResource(R.mipmap.paint_color);
-                iv_keyboard.setImageResource(R.mipmap.typo);
-                if (onWaterInterface != null) {
-                    onWaterInterface.onAddImage();
-                }
-                break;
-            case R.id.iv_tt:
-                if (ttSeleck) {
-                    ttSeleck = false;
-                    bv_view.setUnVisi();
-                    iv_tt.setImageResource(R.mipmap.tt);
-                } else {
-                    ttSeleck = true;
-                    keyboardSeleck = false;
-                    colorSeleck = false;
-                    bv_view.setTextSizeVisi(TTVISI);
-                    iv_tt.setImageResource(R.mipmap.tt_true);
-                    iv_paint_color.setImageResource(R.mipmap.paint_color);
-                    iv_keyboard.setImageResource(R.mipmap.typo);
-                }
-                break;
-            case R.id.iv_keyboard:
-                if (keyboardSeleck) {
-                    keyboardSeleck = false;
-                    bv_view.setUnVisi();
-                    iv_keyboard.setImageResource(R.mipmap.typo);
-                    iv_close.setVisibility(GONE);
-                    iv_add.setVisibility(VISIBLE);
-                    ll_definite.setVisibility(GONE);
-                } else {
-                    keyboardSeleck = true;
-                    ttSeleck = false;
-                    colorSeleck = false;
-                    bv_view.setTextSizeVisi(KEYBOARDVISI);
-                    iv_keyboard.setImageResource(R.mipmap.typo_true);
-                    iv_tt.setImageResource(R.mipmap.tt);
-                    ll_definite.setVisibility(VISIBLE);
-                    iv_paint_color.setImageResource(R.mipmap.paint_color);
-                    iv_close.setVisibility(VISIBLE);
-                    iv_add.setVisibility(GONE);
-                }
-                break;
-
-            case R.id.iv_paint_color:
-                if (colorSeleck) {
-                    colorSeleck = false;
-                    bv_view.setUnVisi();
-                    iv_paint_color.setImageResource(R.mipmap.paint_color);
-                } else {
-                    colorSeleck = true;
-                    ttSeleck = false;
-                    keyboardSeleck = false;
-                    bv_view.setTextSizeVisi(COLORVISI);
-                    iv_tt.setImageResource(R.mipmap.tt);
-                    iv_paint_color.setImageResource(R.mipmap.paint_color_a);
-                    iv_keyboard.setImageResource(R.mipmap.typo);
-                }
-                break;
-
-            case R.id.iv_submit:
-                //提交
-                if (onWaterInterface != null) {
-                    String editText = bv_view.getEditText();
-                    if (!TextUtils.isEmpty(editText)) {
-                        onWaterInterface.onInuptText(editText);
-                        keyboardSeleck = false;
-                        iv_keyboard.setImageResource(R.mipmap.typo);
-                        iv_close.setVisibility(GONE);
-                        iv_add.setVisibility(VISIBLE);
-                        ll_definite.setVisibility(GONE);
-                        bv_view.setUnVisi();
-                        bv_view.setEditNull();
-                    } else {
-                    }
-                }
-                break;
-            case R.id.iv_close:
-                //关闭
-                bv_view.setUnVisi();
-                ttSeleck = false;
-                keyboardSeleck = false;
-                colorSeleck = false;
-                iv_tt.setImageResource(R.mipmap.tt);
-                iv_paint_color.setImageResource(R.mipmap.paint_color);
-                iv_keyboard.setImageResource(R.mipmap.typo);
-                iv_close.setVisibility(GONE);
-                iv_add.setVisibility(VISIBLE);
-                ll_definite.setVisibility(GONE);
-                break;
-        }
+//        switch (view.getId()) {
+//            case R.id.iv_add:
+//                bv_view.setUnVisi();
+//                iv_tt.setImageResource(R.mipmap.tt);
+//                iv_paint_color.setImageResource(R.mipmap.paint_color);
+//                iv_keyboard.setImageResource(R.mipmap.typo);
+//                if (onWaterInterface != null) {
+//                    onWaterInterface.onAddImage();
+//                }
+//                break;
+//            case R.id.iv_tt:
+//                if (ttSeleck) {
+//                    ttSeleck = false;
+//                    bv_view.setUnVisi();
+//                    iv_tt.setImageResource(R.mipmap.tt);
+//                } else {
+//                    ttSeleck = true;
+//                    keyboardSeleck = false;
+//                    colorSeleck = false;
+//                    bv_view.setTextSizeVisi(TTVISI);
+//                    iv_tt.setImageResource(R.mipmap.tt_true);
+//                    iv_paint_color.setImageResource(R.mipmap.paint_color);
+//                    iv_keyboard.setImageResource(R.mipmap.typo);
+//                }
+//                break;
+//            case R.id.iv_keyboard:
+//                if (keyboardSeleck) {
+//                    keyboardSeleck = false;
+//                    bv_view.setUnVisi();
+//                    iv_keyboard.setImageResource(R.mipmap.typo);
+//                    iv_close.setVisibility(GONE);
+//                    iv_add.setVisibility(VISIBLE);
+//                    ll_definite.setVisibility(GONE);
+//                } else {
+//                    keyboardSeleck = true;
+//                    ttSeleck = false;
+//                    colorSeleck = false;
+//                    bv_view.setTextSizeVisi(KEYBOARDVISI);
+//                    iv_keyboard.setImageResource(R.mipmap.typo_true);
+//                    iv_tt.setImageResource(R.mipmap.tt);
+//                    ll_definite.setVisibility(VISIBLE);
+//                    iv_paint_color.setImageResource(R.mipmap.paint_color);
+//                    iv_close.setVisibility(VISIBLE);
+//                    iv_add.setVisibility(GONE);
+//                }
+//                break;
+//
+//            case R.id.iv_paint_color:
+//                if (colorSeleck) {
+//                    colorSeleck = false;
+//                    bv_view.setUnVisi();
+//                    iv_paint_color.setImageResource(R.mipmap.paint_color);
+//                } else {
+//                    colorSeleck = true;
+//                    ttSeleck = false;
+//                    keyboardSeleck = false;
+//                    bv_view.setTextSizeVisi(COLORVISI);
+//                    iv_tt.setImageResource(R.mipmap.tt);
+//                    iv_paint_color.setImageResource(R.mipmap.paint_color_a);
+//                    iv_keyboard.setImageResource(R.mipmap.typo);
+//                }
+//                break;
+//
+//            case R.id.iv_submit:
+//                //提交
+//                if (onWaterInterface != null) {
+//                    String editText = bv_view.getEditText();
+//                    if (!TextUtils.isEmpty(editText)) {
+//                        onWaterInterface.onInuptText(editText);
+//                        keyboardSeleck = false;
+//                        iv_keyboard.setImageResource(R.mipmap.typo);
+//                        iv_close.setVisibility(GONE);
+//                        iv_add.setVisibility(VISIBLE);
+//                        ll_definite.setVisibility(GONE);
+//                        bv_view.setUnVisi();
+//                        bv_view.setEditNull();
+//                    } else {
+//                    }
+//                }
+//                break;
+//            case R.id.iv_close:
+//                //关闭
+//                bv_view.setUnVisi();
+//                ttSeleck = false;
+//                keyboardSeleck = false;
+//                colorSeleck = false;
+//                iv_tt.setImageResource(R.mipmap.tt);
+//                iv_paint_color.setImageResource(R.mipmap.paint_color);
+//                iv_keyboard.setImageResource(R.mipmap.typo);
+//                iv_close.setVisibility(GONE);
+//                iv_add.setVisibility(VISIBLE);
+//                ll_definite.setVisibility(GONE);
+//                break;
+//        }
     }
 
 }

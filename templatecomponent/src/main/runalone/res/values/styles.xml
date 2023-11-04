@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="diyview_dialog" parent="@android:style/Theme.Dialog">
+    <style name="template_dialog" parent="@android:style/Theme.Dialog">
         <!-- 有无边框 -->
         <item name="android:windowFrame">@null</item>
         <!-- 是否浮现在activity之上 -->
@@ -16,7 +16,7 @@
     </style>
 
     <!--自定义Dialog样式-->
-    <style name="diyview_MyDialog" parent="AlertDialog.AppCompat.Light">
+    <style name="template_MyDialog" parent="AlertDialog.AppCompat.Light">
         <item name="android:background">@android:color/transparent</item>
         <item name="android:backgroundDimEnabled">true</item>
     </style>

@@ -20,12 +20,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
 //    compile project(':componentlib')
-    implementation project(':basicres')
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api project(':basicres')
+    api fileTree(include: ['*.jar'], dir: 'libs')
 }
 repositories {
     mavenCentral()

@@ -1,0 +1,23 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.aidlclientcomponent">
+
+    <application
+        android:name=".TemplateApplication"
+        android:allowBackup="true"
+        android:label="@string/aidlclient_app_name"
+        android:supportsRtl="true"
+        android:theme="@style/commonAppTheme"
+        tools:replace="android:label">
+
+        <activity android:name=".TemplateActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>

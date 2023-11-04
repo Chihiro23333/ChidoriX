@@ -55,7 +55,7 @@ import static javax.lang.model.element.Modifier.PUBLIC;
  */
 @AutoService(Processor.class)
 @SupportedOptions(KEY_HOST_NAME)
-@SupportedSourceVersion(SourceVersion.RELEASE_7)
+@SupportedSourceVersion(SourceVersion.RELEASE_8)
 @SupportedAnnotationTypes({ANNOTATION_TYPE_AUTOWIRED})
 public class AutowiredProcessor extends AbstractProcessor {
     private static final String TAG = AutowiredProcessor.class.getSimpleName();

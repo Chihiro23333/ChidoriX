@@ -1,4 +1,4 @@
-apply plugin: 'java'
+apply plugin: 'java-library'
 
 group="com.github.jimu"
 
@@ -15,13 +15,12 @@ group="com.github.jimu"
 //}
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-}
-
-compileJava {
-    sourceCompatibility = '1.7'
-    targetCompatibility = '1.7'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
 
 //apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
 //apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}

@@ -38,14 +38,18 @@ android {
         abortOnError false
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
 
 dependencies {
-    compile files('libs/okhttp-3.11.0.jar')
-    compile project(':componentservice')
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-//    annotationProcessor project(':router-anno-compiler')
-    annotationProcessor 'com.github.jimu:router-anno-compiler:1.0.1'
+    api project(':componentservice')
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    annotationProcessor project(':router-anno-compiler')
+//    annotationProcessor 'com.github.jimu:router-anno-compiler:1.0.1'
 }
 
 combuild {

@@ -34,6 +34,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -42,8 +47,7 @@ dependencies {
     api  rootProject.ext.dependencies.appcompat
     api project(':router-annotation')
 //    compile 'com.github.jimu:router-annotation:1.0.1'
-    implementation 'com.google.code.gson:gson:2.8.2'
-
+    api 'com.google.code.gson:gson:2.8.2'
 }
 
 

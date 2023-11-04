@@ -3,7 +3,7 @@ ext {
             minSdkVersion:15,
             targetSdkVersion:29,
             compileSdkVersion:31,
-            buildToolsVersion:"28.0.2"
+            buildToolsVersion:"28.0.3"
     ]
     versions = [
             BaseRecyclerViewAdapterHelper:"3.0.14",

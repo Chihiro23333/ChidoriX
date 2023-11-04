@@ -1,5 +1,6 @@
 package com.bilibili.diyviewcomponent.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
@@ -55,37 +56,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.one:
-                Jump(DiyViewOneActivity.class);
-                break;
-            case R.id.two:
-                Jump(DiyViewTwoActivity.class);
-                break;
-            case R.id.three:
-                Jump(DiyViewThreeActivity.class);
-                break;
-            case R.id.four:
-                Jump(ShapeActivity.class);
-                break;
-            case R.id.five:
-                Jump(MultiTouchActivity.class);
-                break;
-            case R.id.six:
-                Jump(XfermodeActivity.class);
-                break;
-            case R.id.seven:
-                Jump(OpenGLActivity.class   );
-                break;
-            case R.id.eight:
-                Jump(WatermarkActivity.class);
-                break;
-            case R.id.doodle1:
-                Jump(DoodleActivity.class);
-                break;
+//        switch (v.getId()) {
+//            case R.id.one:
+//                Jump(DiyViewOneActivity.class);
+//                break;
+//            case R.id.two:
+//                Jump(DiyViewTwoActivity.class);
+//                break;
+//            case R.id.three:
+//                Jump(DiyViewThreeActivity.class);
+//                break;
+//            case R.id.four:
+//                Jump(ShapeActivity.class);
+//                break;
+//            case R.id.five:
+//                Jump(MultiTouchActivity.class);
+//                break;
+//            case R.id.six:
+//                Jump(XfermodeActivity.class);
+//                break;
+//            case R.id.seven:
+//                Jump(OpenGLActivity.class   );
+//                break;
+//            case R.id.eight:
+//                Jump(WatermarkActivity.class);
+//                break;
+//            case R.id.doodle1:
+//                Jump(DoodleActivity.class);
+//                break;
 
-            default:
-        }
+//            default:
+//        }
     }
 
     private void Jump(Class<?> c) {

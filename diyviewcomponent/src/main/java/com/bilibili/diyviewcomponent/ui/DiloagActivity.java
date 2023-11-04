@@ -1,8 +1,6 @@
 package com.bilibili.diyviewcomponent.ui;
 
-import android.app.Dialog;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
@@ -13,8 +11,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 
 import com.bilibili.diyviewcomponent.R;
-import com.bilibili.diyviewcomponent.dialog.FullScreenDialog;
-import com.bilibili.diyviewcomponent.dialog.FullScreenDialogFragment;
 
 public class DiloagActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -53,10 +49,8 @@ public class DiloagActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.bt_full:
-                showFullScreenDialog();
-                break;
+        if (view.getId() ==  R.id.bt_full) {
+            showFullScreenDialog();
         }
     }
 
