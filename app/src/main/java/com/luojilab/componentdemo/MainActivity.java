@@ -12,7 +12,6 @@ import com.luojilab.component.basicres.BaseActivity;
 import com.luojilab.component.basicres.BaseApplication;
 import com.luojilab.component.componentlib.router.Router;
 import com.luojilab.component.componentlib.router.ui.UIRouter;
-import com.luojilab.componentservice.readerbook.ReadBookService;
 import com.luojilab.router.facade.annotation.RouteNode;
 
 @RouteNode(path = "/main", desc = "首页")

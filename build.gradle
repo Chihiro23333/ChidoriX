@@ -16,24 +16,22 @@ buildscript ({ it->
         maven { url 'https://maven.aliyun.com/repository/releases' }
         maven { url 'https://maven.aliyun.com/repository/grails-core' }
         maven { url 'https://maven.aliyun.com/repository/mapr-public' }
-//        jcenter()
+//        mavenCentral()
+//        maven { url "https://maven.google.com" }
 //        maven { url "https://jitpack.io" }
+//        maven {
+//            url 'https://dl.bintray.com/leobert-lan-oss/maven/'
+//        }
 //        maven {
 //            url 'https://maven.google.com/'
 //            name 'Google'
 //        }
-//        maven {
-//            url 'https://dl.bintray.com/leobert-lan-oss/maven/'
-//        }
         maven {
             url uri('./repo')
         }
-//        maven {
-//            url uri('./sample_repo')
-//        }
     }
     it.dependencies {
-        classpath 'com.android.tools.build:gradle:3.6.4'
+        classpath 'com.android.tools.build:gradle:4.2.0'
 //        classpath 'com.luojilab.ddcomponent:build-gradle:1.1.0'
         classpath 'com.dd.buildgradle:build-gradle:1.0.8'
 //        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
@@ -60,7 +58,6 @@ allprojects {
         maven { url 'https://maven.aliyun.com/repository/mapr-public' }
 //        mavenCentral()
 //        maven { url "https://maven.google.com" }
-//        jcenter()
 //        maven { url "https://jitpack.io" }
 //        maven {
 //            url 'https://dl.bintray.com/leobert-lan-oss/maven/'

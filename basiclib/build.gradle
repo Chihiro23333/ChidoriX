@@ -24,15 +24,19 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api project(":componentlib")
+
     api 'com.squareup.picasso:picasso:2.5.2'
     api 'com.github.zhaokaiqiang.klog:library:1.6.0'
-    api  rootProject.ext.dependencies.BaseRecyclerViewAdapterHelper
-    api project(":componentlib")
+    api "io.github.cymchad:BaseRecyclerViewAdapterHelper:4.0.1"
+    api 'androidx.recyclerview:recyclerview:1.3.0'
     api  rootProject.ext.dependencies.appcompat
-//    compile 'com.github.jimu:componentlib:1.3.1'
+    api  rootProject.ext.dependencies.BaseRecyclerViewAdapterHelper
 }
 

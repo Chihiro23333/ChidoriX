@@ -26,6 +26,10 @@ android {
     }
 
     resourcePrefix "common_"
+
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {

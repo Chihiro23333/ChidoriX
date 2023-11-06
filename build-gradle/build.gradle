@@ -22,7 +22,6 @@ dependencies {
     //groovy sdk
     implementation localGroovy()
     testImplementation group: 'junit', name: 'junit', version: '4.12'
-
 }
 
 
